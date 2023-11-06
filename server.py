@@ -46,6 +46,16 @@ def write_to_csv(data):
         csv_writer.writerow([email, subject, message])
 
 
+@app.route('/password_check', methods=['POST', 'GET'])
+def submit_form():
+    if request.method == "POST":
+        try:
+            return redirect('password_check.html')
+        except:
+            return 'did not check against the database'
+    else:
+        return 'something went wrong with button. Try again!'
+
 """
 @app.route('/index.html')
 def my_index():
