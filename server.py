@@ -33,7 +33,7 @@ def submit_form():
 def submit_form():
     if request.method == "POST":
         try:
-            return redirect('password_check.html')
+            return redirect('workone.html')
         except:
             return 'did not check against the database'
     else:
