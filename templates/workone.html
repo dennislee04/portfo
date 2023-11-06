@@ -83,7 +83,7 @@
                       <div class="form-group">
                         <input name="Password To Check" type="text" class="form-control" id="passwordcheck" placeholder="Password To Check">
                       </div>
-                      <button type="submit" class="btn btn-default btn-lg">Check</button>
+                      <button type="submit" class="btn btn-default btn-lg" id="checkbutton">Check</button>
                     </div>
                   </div>
                 </form>
@@ -128,7 +128,14 @@
 <script>
   document.addEventListener("DOMContentLoaded", function (event) {
      navActivePage();
-  });
+    });
+
+  const MyButton = document.getElementById('checkbutton');
+    //Add on click listener for button
+    MyButton.addEventListener('click', function() {
+      //Select (h1) heading by id, and then change it's value to (bananas)
+      document.getElementById('paswordresult').innerText = "I clicked the button"
+      })
 </script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
