@@ -45,18 +45,6 @@ def write_to_csv(data):
         csv_writer = csv.writer(database2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         csv_writer.writerow([email, subject, message])
 
-
-
-@app.route('/password_check', methods=['POST', 'GET'])
-def submit_form():
-    if request.method == "POST":
-        try:
-            # return redirect('workone.html')
-            return "this is a string"
-        except:
-            return 'did not check https://haveibeenpwned.com/Passwords database'
-    else:
-        return 'something went wrong with checking your password. Try again!'
 """
 @app.route('/index.html')
 def my_index():
