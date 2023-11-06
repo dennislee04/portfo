@@ -29,17 +29,6 @@ def submit_form():
         return 'something went wrong. Try again!'
 
 
-@app.route('/password_check', methods=['POST', 'GET'])
-def submit_form():
-    if request.method == "POST":
-        try:
-            return redirect('workone.html')
-        except:
-            return 'did not check against the database'
-    else:
-        return 'something went wrong with checking clicking the button. Try again!'
-
-
 def write_to_file(data):
     with open('database.txt', mode='a') as database:
         email = data["email"]
