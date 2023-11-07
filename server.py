@@ -1,7 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect
 import csv
-import requests
-import hashlib
 
 app = Flask(__name__)
 
@@ -51,11 +49,10 @@ def write_to_csv(data):
 
 
 @app.route('/password_check', methods=['POST', 'GET'])
-def submit_form2():
+def submit_form2(data="Lets see if you have a Strong Password!"):
     if request.method == "POST":
         try:
             data = request.form.to_dict()
-            #pwned_api_check(pwd)
             #return {data}
             return render_template('workone.html', data=data['Password To Check'])
         except:
