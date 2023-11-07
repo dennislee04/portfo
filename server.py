@@ -59,7 +59,7 @@ def send_email(data):
     email['from'] = 'leedennis04@gmail.com'
     email['to'] = 'leedennis04@gmail.com'
     email['subject'] = data["subject"]
-    message = data["email"] + "\n" + data["message"]
+    message = "From: " + data["email"] + "\n\n" + data["message"]
 
     email.set_content(message)
     password = ""
