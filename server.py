@@ -59,8 +59,9 @@ def send_email(data):
     email['from'] = 'leedennis04@gmail.com'
     email['to'] = 'leedennis04@gmail.com'
     email['subject'] = data["subject"]
+    message = data["message"]
 
-    email.set_content('This is a test email, from ZTM')
+    email.set_content(message)
     password = ""
 
     with open('pwd_key.txt', mode='r') as file:
