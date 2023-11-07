@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, request, redirect
 import csv
 import requests
 import hashlib
+import smtplib
 
 app = Flask(__name__)
 
@@ -50,6 +51,12 @@ def write_to_csv(data):
         message = data["message"]
         csv_writer = csv.writer(database2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         csv_writer.writerow([email, subject, message])
+
+
+def send_email(data):
+    with open('../pwd_key.txt') as file:
+        password = ""
+
 
 
 # This is the form for checking the password against the "https://haveibeenpwned.com/Passwords" API
