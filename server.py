@@ -27,7 +27,7 @@ def submit_form():
             # print(data)
             # write_to_file(data)
             write_to_csv(data)
-            send_email()
+            send_email(data)
             return redirect('thankyou.html')
         except:
             return 'did not save to database'
@@ -54,7 +54,7 @@ def write_to_csv(data):
         csv_writer.writerow([email, subject, message])
 
 
-def send_email():
+def send_email(data):
     email = EmailMessage()
     email['from'] = 'leedennis04@gmail.com'
     email['to'] = 'leedennis04@gmail.com'
