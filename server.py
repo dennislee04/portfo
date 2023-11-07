@@ -2,8 +2,8 @@ from flask import Flask, render_template, url_for, request, redirect
 import csv
 import requests
 import hashlib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import smtplib
+from email.message import EmailMessage
 
 app = Flask(__name__)
 
@@ -55,24 +55,17 @@ def write_to_csv(data):
 
 
 def send_email():
-    """
-    password = ""
-    with open('pwd_key.txt', mode='r') as file:
-        password = file.readline()
-    """
-    email = MIMEMultipart()
-    email['From'] = 'leedennis04@gmail.com'
-    email['To'] = 'leedennis04@gmail.com'
-    email['Cc'] = 'leedennis04@gmail.com'
-    email['Subject'] = 'This is a test email, from ZTM'
-    message = data["message"]
-    msg.attach(MIMEText(message))
-    smtp = smtplib.SMTP('smtp.gmail.com',587)
-    smtp.ehlo()
-    smtp.starttls()
-    smtp.login('leedennis04@gmail.com', 'ygfgtlilnyyhfscj')
-    smtp.sendmail(msg["From"], msg["To"].split(",") + msg["Cc"].split(","), msg.as_string())
+    email = EmailMessage()
+    email['from'] = 'leedennis04@gmail.com'
+    email['to'] = 'leedennis04@gmail.com'
+    email['subject'] = 'This is a ZTM Email - TEST'
 
+    email.set_content('This is a test email, from ZTM')
+    with smtplib.SMTP(host='smtp.gmail.com', port=587) as smtp:
+        smtp.ehlo()
+        smtp.starttls()
+        smtp.login('leedennis04@gmail.com', 'ygfgtlilnyyhfscj')
+        smtp.send_message(email)
 
 
 # This is the form for checking the password against the "https://haveibeenpwned.com/Passwords" API
