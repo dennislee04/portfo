@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect
 import csv
-from requests import get
+from requests
 
 app = Flask(__name__)
 
