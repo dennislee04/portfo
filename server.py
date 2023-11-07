@@ -55,9 +55,9 @@ def submit_form2(data="Lets see if you have a Strong Password!"):
         try:
             data = request.form.to_dict()
             pwd= str(data['Password To Check'])
-            pwned_api_check(pwd)
+            count = pwned_api_check(pwd)
             #return {data}
-            return render_template('workone.html', data=pwd)
+            return render_template('workone.html', data=count)
         except:
             return 'did not check against the database'
     else:
