@@ -65,7 +65,7 @@ def submit_form2(data="Lets see if you have a Strong Password!"):
         except:
             return 'did not check against the database'
     else:
-        return render_template('workone.html', data='Something went wrong with button...'
+        return 'something went wrong with button. Try again!'
 
 
 def request_api_data(query_char):
