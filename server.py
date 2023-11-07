@@ -2,8 +2,8 @@ from flask import Flask, render_template, url_for, request, redirect
 import csv
 import requests
 import hashlib
-import smtplib
-from email.message import EmailMessage
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 app = Flask(__name__)
 
@@ -27,7 +27,7 @@ def submit_form():
             # print(data)
             # write_to_file(data)
             write_to_csv(data)
-            send_message(data)
+            # send_message(data)
             return redirect('thankyou.html')
         except:
             return 'did not save to database'
