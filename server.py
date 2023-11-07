@@ -57,12 +57,17 @@ def submit_form2(data="Lets see if you have a Strong Password!"):
             data = request.form.to_dict()
             pwd= str(data['Password To Check'])
             count = pwned_api_check(pwd)
+                if count:
+                    string = f"Your password \'{pwd}\' was found: {count} times `n You should change your password"
+                else:
+                    string = f"Your password \'{pwd}\' was not found. You have a strong password!"
             #return {data}
-            return render_template('workone.html', data=count)
+            return render_template('workone.html', data=string)
         except:
-            return 'did not check against the database'
+            return render_template('workone.html', data='Was NOT able to check against the database...')
+            
     else:
-        return 'something went wrong with button. Try again!'
+        return render_template('workone.html', data='Something went Wrong with button.')
 
 
 def request_api_data(query_char):
