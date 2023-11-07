@@ -60,16 +60,16 @@ def send_email(data):
     with open('pwd_key.txt', mode='r') as file:
         password = file.readline()
     """
-    email = EmailMessage()
+    email = MIMEMultipart()
     email['from'] = data["email"]
     email['to'] = 'leedennis04@gmail.com'
     email['subject'] = data["subject"]
-    email.set_content(data["message"])
-    with smtplib.SMTP(host='smtp.gmail.com', port=587) as smtp:
-        smtp.ehlo()
-        smtp.starttls()
-        smtp.login('leedennis04@gmail.com', 'ygfgtlilnyyhfscj')
-        smtp.send_message(email)
+    message = data["message"]
+    smtp = smtplib.SMTP('smtp.gmail.com',587)
+    smtp.ehlo()
+    smtp.starttls()
+    smtp.login('leedennis04@gmail.com', 'ygfgtlilnyyhfscj')
+    smtp.send_message(email)
 
 
 # This is the form for checking the password against the "https://haveibeenpwned.com/Passwords" API
