@@ -57,9 +57,16 @@ def write_to_csv(data):
 def send_email(data):
     password = ""
     with open('../pwd_key.txt') as file:
-        password  file.readline()
-
-
+        password = file.readline()
+    email = EmailMessage()
+    email['from'] = data["email"]
+    email['to'] = 'leedennis04@gmail.com'
+    email['subject'] = data["message"]
+    with smtplib.SMTP(host='smtp.gmail.com', port=587) as smtp:
+        smtp.ehlo()
+        smtp.starttls()
+        smtp.login('leedennis04@gmail.com', password)
+        smtp.send_message(email)
 
 
 # This is the form for checking the password against the "https://haveibeenpwned.com/Passwords" API
