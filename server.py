@@ -55,7 +55,7 @@ def submit_form2(data="Lets see if you have a Strong Password!"):
     if request.method == "POST":
         try:
             data = request.form.to_dict()
-            pwd = str(data['Password To Check'])
+            pwd = data['Password To Check']
             #pwned_api_check(pwd)
             #return {data}
             return render_template('workone.html', data=pwd)
@@ -86,6 +86,7 @@ def get_password_leaks(hashes, hash_to_check):
         if h == hash_to_check:
             return count
     return 0
+
 
 """
 @app.route('/index.html')
