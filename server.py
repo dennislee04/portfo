@@ -58,7 +58,7 @@ def send_email(data):
     email = EmailMessage()
     email['from'] = 'leedennis04@gmail.com'
     email['to'] = 'leedennis04@gmail.com'
-    email['subject'] = 'This is a ZTM Email - TEST'
+    email['subject'] = data["subject"]
 
     email.set_content('This is a test email, from ZTM')
     password = ""
