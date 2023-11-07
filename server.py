@@ -3,6 +3,7 @@ import csv
 import requests
 import hashlib
 import smtplib
+from email.message import EmailMessage
 
 app = Flask(__name__)
 
@@ -54,8 +55,10 @@ def write_to_csv(data):
 
 
 def send_email(data):
+    password = ""
     with open('../pwd_key.txt') as file:
-        password = ""
+        password  file.readline()
+
 
 
 
