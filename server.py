@@ -55,10 +55,9 @@ def submit_form2(data="Lets see if you have a Strong Password!"):
     if request.method == "POST":
         try:
             data = request.form.to_dict()
-            pwd = data['Password To Check']
             #pwned_api_check(pwd)
             #return {data}
-            return render_template('workone.html', data=pwd)
+            return render_template('workone.html', data=data['Password To Check'])
         except:
             return 'did not check against the database'
     else:
