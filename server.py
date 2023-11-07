@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect
 import csv
-import passwordchecker
+import passwordchecker.py
 
 app = Flask(__name__)
 
