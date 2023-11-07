@@ -16,6 +16,7 @@ def html_page(page_name):
     return render_template(page_name)
 
 
+#This is for submitting the contact form
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
     if request.method == "POST":
@@ -31,7 +32,7 @@ def submit_form():
         return 'something went wrong. Try again!'
 
 
-
+#This will write the user's contact information to the database.txt file
 def write_to_file(data):
     with open('database.txt', mode='a') as database:
         email = data["email"]
@@ -40,6 +41,7 @@ def write_to_file(data):
         file = database.write(f'\n{email}, {subject}, {message}')
 
 
+#This will write the user's contact information to the database.csv file
 def write_to_csv(data):
     with open('database.csv', mode='a', newline='') as database2:
         email = data["email"]
@@ -50,6 +52,7 @@ def write_to_csv(data):
 
 
 
+# This is the form for checking the password against the "https://haveibeenpwned.com/Passwords" API
 @app.route('/password_check', methods=['POST', 'GET'])
 def submit_form2(data="Lets see if you have a Strong Password!"):
     if request.method == "POST":
@@ -68,6 +71,7 @@ def submit_form2(data="Lets see if you have a Strong Password!"):
         return 'something went wrong with button. Try again!'
 
 
+# This will test to make sure that it can connect to the "https://haveibeenpwned.com/Passwords" API
 def request_api_data(query_char):
     url = 'https://api.pwnedpasswords.com/range/' + query_char
     res = requests.get(url)
@@ -76,6 +80,7 @@ def request_api_data(query_char):
     return res
 
 
+# This will hash the user inputed password & will split this into 2 strings (first 5 char & all the char after the 5th)
 def pwned_api_check(password):
     sha1password = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
     first5_char, tail = sha1password[:5], sha1password[5:]
@@ -83,6 +88,7 @@ def pwned_api_check(password):
     return get_password_leaks(response, tail)
 
 
+# This will used the hased password & check against the "https://haveibeenpwned.com/Passwords" API to see how many times it shows up there
 def get_password_leaks(hashes, hash_to_check):
     hashes = (line.split(':') for line in hashes.text.splitlines())
     for h, count in hashes:
