@@ -58,9 +58,11 @@ def submit_form2(data="Lets see if you have a Strong Password!"):
             pwd= str(data['Password To Check'])
             count = pwned_api_check(pwd)
                 if count:
-                    string = f"Your password \'{pwd}\' was found: {count} times \n You should change your password"
+                    string = count
+                    # string = f"Your password \'{pwd}\' was found: {count} times \n You should change your password"
                 else:
-                    string = f"Your password \'{pwd}\' was not found. You have a strong password!"
+                    string = count
+                    # string = f"Your password \'{pwd}\' was not found. You have a strong password!"
             #return {data}
             return render_template('workone.html', data=string)
         except:
