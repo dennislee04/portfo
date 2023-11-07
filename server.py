@@ -51,7 +51,7 @@ def write_to_csv(data):
 
 
 @app.route('/password_check', methods=['POST', 'GET'])
-def submit_form2(data="Lets see if you have a Strong Password!"):
+def submit_form2():
     if request.method == "POST":
         try:
             data = request.form.to_dict()
