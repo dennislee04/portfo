@@ -27,8 +27,8 @@ def submit_form():
             data = request.form.to_dict()
             # print(data)
             # write_to_file(data)
-            # write_to_csv(data)
-            send_message(data)
+            write_to_csv(data)
+            # send_message(data)
             return redirect('thankyou.html')
         except:
             return 'did not save to database'
@@ -54,7 +54,7 @@ def write_to_csv(data):
         csv_writer = csv.writer(database2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         csv_writer.writerow([email, subject, message])
 
-
+"""
 # This will create the email message
 def create_message(sender, to, subject, message_text):
     message = MIMEText(message_text)
@@ -76,12 +76,13 @@ def send_message(data):
         service = oauth.get_g_service()
         message = (service.users().messages().send(userId=user_id, body=msg).execute())
         print('Message Id: %s' % message['id'])
-        return message
+        # return message
+        message
     except ValueError as e:
         print('An error occurred: %s' % e)
 
 # send_message("user@example.com","user@example.com","test","this is a tesst",user_id='me')
-
+"""
 
 # This is the form for checking the password against the "https://haveibeenpwned.com/Passwords" API
 @app.route('/password_check', methods=['POST', 'GET'])
