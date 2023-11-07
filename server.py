@@ -53,8 +53,8 @@ def submit_form2():
     if request.method == "POST":
         try:
             data = request.form.to_dict()
-            print(f'{data}')
-            return redirect('workone.html')
+            return {data}
+            # return redirect('workone.html')
         except:
             return 'did not check against the database'
     else:
