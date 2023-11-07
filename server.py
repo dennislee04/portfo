@@ -56,7 +56,7 @@ def write_to_csv(data):
 
 def send_email(data):
     password = ""
-    with open('../pwd_key.txt') as file:
+    with open('pwd_key.txt') as file:
         password = file.readline()
     email = EmailMessage()
     email['from'] = data["email"]
