@@ -57,11 +57,11 @@ def write_to_csv(data):
 
 # This will create the email message
 def create_message(sender, to, subject, message_text):
-  message = MIMEText(message_text)
-  message['to'] = to
-  message['from'] = sender
-  message['subject'] = subject
-  return {'raw': base64.urlsafe_b64encode(message.as_string().encode()).decode()}
+    message = MIMEText(message_text)
+    message['to'] = to
+    message['from'] = sender
+    message['subject'] = subject
+    return {'raw': base64.urlsafe_b64encode(message.as_string().encode()).decode()}
 
 
 # This will run the create email & send the email message
@@ -71,15 +71,14 @@ def send_message(data):
     subject = data["subject"]
     message_text = data["message"]
     user_id='leedennis04@gmail.com'
-  msg = create_message(sender,to,subject,message_text)
-  try:
-    service = oauth.get_g_service()
-    message = (service.users().messages().send(userId=user_id, body=msg)
-               .execute())
-    print('Message Id: %s' % message['id'])
-    return message
-  except ValueError as e:
-    print('An error occurred: %s' % e)
+    msg = create_message(sender,to,subject,message_text)
+    try:
+        service = oauth.get_g_service()
+        message = (service.users().messages().send(userId=user_id, body=msg).execute())
+        print('Message Id: %s' % message['id'])
+        return message
+    except ValueError as e:
+        print('An error occurred: %s' % e)
 
 # send_message("user@example.com","user@example.com","test","this is a tesst",user_id='me')
 
