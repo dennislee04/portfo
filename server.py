@@ -56,7 +56,6 @@ def write_to_csv(data):
 
 
 # This will create the email message
-
 def create_message(sender, to, subject, message_text):
   message = MIMEText(message_text)
   message['to'] = to
@@ -64,14 +63,14 @@ def create_message(sender, to, subject, message_text):
   message['subject'] = subject
   return {'raw': base64.urlsafe_b64encode(message.as_string().encode()).decode()}
 
-"""
+
 # This will run the create email & send the email message
 def send_message(data):
     sender = data["email"]
     to = 'leedennis04@gmail.com'
     subject = data["subject"]
     message_text = data["message"]
-    user_id='me'
+    user_id='leedennis04@gmail.com'
   msg = create_message(sender,to,subject,message_text)
   try:
     service = oauth.get_g_service()
@@ -81,7 +80,7 @@ def send_message(data):
     return message
   except ValueError as e:
     print('An error occurred: %s' % e)
-"""
+
 # send_message("user@example.com","user@example.com","test","this is a tesst",user_id='me')
 
 
