@@ -27,7 +27,7 @@ def submit_form():
             # print(data)
             # write_to_file(data)
             write_to_csv(data)
-            send_message(data)
+            send_message()
             return redirect('thankyou.html')
         except:
             return 'did not save to database'
@@ -54,7 +54,7 @@ def write_to_csv(data):
         csv_writer.writerow([email, subject, message])
 
 
-def send_email(data):
+def send_email():
     """
     password = ""
     with open('pwd_key.txt', mode='r') as file:
@@ -63,8 +63,8 @@ def send_email(data):
     email = MIMEMultipart()
     email['From'] = 'leedennis04@gmail.com'
     email['To'] = 'leedennis04@gmail.com'
-    email['Cc'] = data["email"]
-    email['Subject'] = data["subject"]
+    email['Cc'] = 'leedennis04@gmail.com'
+    email['Subject'] = 'This is a test email, from ZTM'
     message = data["message"]
     msg.attach(MIMEText(message))
     smtp = smtplib.SMTP('smtp.gmail.com',587)
