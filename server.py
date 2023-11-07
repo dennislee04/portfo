@@ -56,7 +56,7 @@ def write_to_csv(data):
 
 def send_email(data):
     email = EmailMessage()
-    email['from'] = 'leedennis04@gmail.com'
+    email['from'] = data["email"]
     email['to'] = 'leedennis04@gmail.com'
     email['subject'] = data["subject"]
     message = data["message"]
