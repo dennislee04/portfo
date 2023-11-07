@@ -19,7 +19,7 @@ def html_page(page_name):
     return render_template(page_name)
 
 
-#This is for submitting the contact form
+# This is for submitting the contact form
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
     if request.method == "POST":
@@ -28,6 +28,7 @@ def submit_form():
             # print(data)
             # write_to_file(data)
             write_to_csv(data)
+            send_message(data)
             return redirect('thankyou.html')
         except:
             return 'did not save to database'
@@ -35,7 +36,7 @@ def submit_form():
         return 'something went wrong. Try again!'
 
 
-#This will write the user's contact information to the database.txt file
+# This will write the user's contact information to the database.txt file
 def write_to_file(data):
     with open('database.txt', mode='a') as database:
         email = data["email"]
@@ -44,7 +45,7 @@ def write_to_file(data):
         file = database.write(f'\n{email}, {subject}, {message}')
 
 
-#This will write the user's contact information to the database.csv file
+# This will write the user's contact information to the database.csv file
 def write_to_csv(data):
     with open('database.csv', mode='a', newline='') as database2:
         email = data["email"]
@@ -53,6 +54,35 @@ def write_to_csv(data):
         csv_writer = csv.writer(database2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         csv_writer.writerow([email, subject, message])
 
+
+# This will create the email message
+def create_message(sender, to, subject, message_text):
+  message = MIMEText(message_text)
+  message['to'] = to
+  message['from'] = sender
+  message['subject'] = subject
+  return {'raw': base64.urlsafe_b64encode(message.as_string().encode()).decode()}
+
+
+# This will run the create email & send the email message
+def send_message(data):
+    sender = data["email"]
+    to = 'leedennis04@gmail.com'
+    subject = data["subject"]
+    message_text = data["message"]
+    user_id='me'
+  msg = create_message(sender,to,subject,message_text)
+  try:
+    service = oauth.get_g_service()
+    message = (service.users().messages().send(userId=user_id, body=msg)
+               .execute())
+    print('Message Id: %s' % message['id'])
+    return message
+  except ValueError as e:
+    print('An error occurred: %s' % e)
+
+
+# send_message("user@example.com","user@example.com","test","this is a tesst",user_id='me')
 
 
 # This is the form for checking the password against the "https://haveibeenpwned.com/Passwords" API
