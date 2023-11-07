@@ -61,10 +61,15 @@ def send_email():
     email['subject'] = 'This is a ZTM Email - TEST'
 
     email.set_content('This is a test email, from ZTM')
+    password = ""
+
+    with open('pwd_key.txt', mode='r') as file:
+        password = file.readline()
+
     with smtplib.SMTP(host='smtp.gmail.com', port=587) as smtp:
         smtp.ehlo()
         smtp.starttls()
-        smtp.login('leedennis04@gmail.com', 'ygfgtlilnyyhfscj')
+        smtp.login('leedennis04@gmail.com', str(password))
         smtp.send_message(email)
 
 
