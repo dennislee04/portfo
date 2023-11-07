@@ -56,10 +56,10 @@ def write_to_csv(data):
 
 def send_email(data):
     email = EmailMessage()
-    email['from'] = data["email"]
+    email['from'] = 'leedennis04@gmail.com'
     email['to'] = 'leedennis04@gmail.com'
     email['subject'] = data["subject"]
-    message = data["message"]
+    message = data["email"] + "\n" + data["message"]
 
     email.set_content(message)
     password = ""
