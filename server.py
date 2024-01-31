@@ -45,7 +45,7 @@ def write_type_to_file(pagename, pagename_type):
         filetype = database0.write(f'\n{pagename}, {pagename_type}')
 
 def read_csv_to_html(file):
-    filename = 'Baseball.csv'
+    with open(f'{file}', mode='r') as filename:
     data = pandas.read_csv(filename, header=0)
     myData = data.values 
     return myData
