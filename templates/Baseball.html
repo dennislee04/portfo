@@ -1,9 +1,18 @@
  <!DOCTYPE html>
 <html>
 <body>
-
 <h1>Baseball.html</h1>
-<p>Baseball.html</p>
-
+    <table class="table table-striped table-sm"> 
+      <tbody> 
+        {% for value in myData%} 
+        <tr> 
+          <td>{{ value[0] }}</td> 
+          <td>{{ value[1] }}</td> 
+          <td>{{ value[2] }}</td> 
+          <td>{{ value[3] }}</td> 
+        </tr> 
+        {% endfor %} 
+      </tbody> 
+    </table> 
 </body>
 </html> 

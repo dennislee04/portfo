@@ -16,7 +16,11 @@ def my_home():
 @app.route('/<string:page_name>')
 def html_page(page_name):
     # write_type_to_file(page_name, type(page_name))
-    return render_template(page_name)
+    if page_name == "Baseball.html":
+        fileData = read_csv_to_html(page_name)
+        return render_template(page_name, myData=fileData)
+    else:
+        return render_template(page_name)
 
 
 # This is for submitting the contact form
@@ -39,6 +43,12 @@ def submit_form():
 def write_type_to_file(pagename, pagename_type):
     with open('type.txt', mode='a') as database0:
         filetype = database0.write(f'\n{pagename}, {pagename_type}')
+
+def read_csv_to_html(file):
+    filename = 'file.csv'
+    data = pandas.read_csv(filename, header=0)
+    myData = data.values 
+    return myData
 
 # This will write the user's contact information to the database.txt file
 def write_to_file(data):
