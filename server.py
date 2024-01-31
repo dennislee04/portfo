@@ -15,6 +15,7 @@ def my_home():
 
 @app.route('/<string:page_name>')
 def html_page(page_name):
+    print(type(page_name))
     return render_template(page_name)
 
 
