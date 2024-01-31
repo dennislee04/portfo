@@ -15,7 +15,10 @@ def my_home():
 
 @app.route('/<string:page_name>')
 def html_page(page_name):
-    return render_template(page_name)
+    if page_name == 'Baseball.csv':
+        print('Baseball.csv')
+    else:
+        return render_template(page_name)
 
 
 # This is for submitting the contact form
