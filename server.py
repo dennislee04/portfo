@@ -3,7 +3,6 @@ import csv
 import requests
 import hashlib
 import smtplib
-import webbrowser
 from email.message import EmailMessage
 
 app = Flask(__name__)
