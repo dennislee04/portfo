@@ -3,6 +3,7 @@ import csv
 import requests
 import hashlib
 import smtplib
+import webbrowser
 from email.message import EmailMessage
 
 app = Flask(__name__)
@@ -123,6 +124,12 @@ def get_password_leaks(hashes, hash_to_check):
             return count
     return 0
 
+# open CSV file in web-browser
+def open_csv_web_browser(filename):
+    file = open(filename,'r')
+    reader = csv.reader(file)
+    for row reader:
+        webbrowser.open_new(row[0])
 
 """
 @app.route('/index.html')
