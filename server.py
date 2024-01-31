@@ -17,9 +17,9 @@ def my_home():
 def html_page(page_name):
     # write_type_to_file(page_name, type(page_name))
     if page_name == "Baseball.html":
-        # return render_template(page_name, Data="TestBaseBallReturn")
-        fileData = read_csv_to_html(page_name)
-        return render_template(page_name, Data=f"fileData")
+        return render_template(page_name, Data="TestBaseBallReturn")
+        # fileData = read_csv_to_html(page_name)
+        # return render_template(page_name, Data=f"fileData")
     else:
         return render_template(page_name)
 
