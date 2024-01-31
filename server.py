@@ -4,7 +4,6 @@ import requests
 import hashlib
 import smtplib
 import os
-import tablib
 from email.message import EmailMessage
 
 app = Flask(__name__)
