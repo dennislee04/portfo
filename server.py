@@ -49,7 +49,7 @@ def read_csv_to_html(file):
     filename = '{file}'
     data = pandas.read_csv(filename, header=0)
     myData = data.values 
-    return filename
+    return "testreturn"
 
 # This will write the user's contact information to the database.txt file
 def write_to_file(data):
