@@ -15,7 +15,7 @@ def my_home():
 
 @app.route('/<string:page_name>')
 def html_page(page_name):
-    # write_type(page_name, type(page_name))
+    # write_type_to_file(page_name, type(page_name))
     return render_template(page_name)
 
 
@@ -36,7 +36,7 @@ def submit_form():
         return 'something went wrong. Try again!'
 
 
-def write_type(pagename, pagename_type):
+def write_type_to_file(pagename, pagename_type):
     with open('type.txt', mode='a') as database0:
         filetype = database0.write(f'\n{pagename}, {pagename_type}')
 
