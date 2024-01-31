@@ -15,7 +15,7 @@ def my_home():
 
 @app.route('/<string:page_name>')
 def html_page(page_name):
-    write_type({pagename}, type({page_name}))
+    write_type(page_name, type(page_name))
     return render_template(page_name)
 
 
@@ -36,9 +36,9 @@ def submit_form():
         return 'something went wrong. Try again!'
 
 
-def write_type(pagename, type):
+def write_type(pagename, pagename_type):
     with open('type.txt', mode='a') as database0:
-        filetype = database0.write(f'{pagename}, {type}')
+        filetype = database0.write(f'{pagename}, {pagename_type}')
 
 # This will write the user's contact information to the database.txt file
 def write_to_file(data):
