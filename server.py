@@ -38,7 +38,7 @@ def submit_form():
 
 def write_type(pagename, pagename_type):
     with open('type.txt', mode='a') as database0:
-        filetype = database0.write(f'{pagename}, {pagename_type}')
+        filetype = database0.write(f'\n{pagename}, {pagename_type}')
 
 # This will write the user's contact information to the database.txt file
 def write_to_file(data):
