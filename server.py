@@ -5,7 +5,8 @@ import hashlib
 import smtplib
 import os
 from email.message import EmailMessage
-# from openpyxl import load_workbook
+from openpyxl import load_workbook
+# workon my-virtualenv (to install libraries to & work on my virtual environment on Python Anywhere)
 
 app = Flask(__name__)
 
