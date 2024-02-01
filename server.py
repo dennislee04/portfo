@@ -22,8 +22,9 @@ def html_page(page_name):
     if page_name == "Baseball.html":
         # return render_template(page_name, Data="TestBaseBallReturn")
         fileData = read_csv_to_html(page_name)
-        #return render_template(page_name, Data=fileData)
-        return render_template(page_name, myData=fileData)
+        # return render_template(page_name, Data=fileData)
+        # return render_template(page_name, myData=fileData)
+        return render_template(page_name, sheet=fileData)
     else:
         return render_template(page_name)
 
