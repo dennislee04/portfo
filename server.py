@@ -5,6 +5,7 @@ import hashlib
 import smtplib
 import os
 from email.message import EmailMessage
+from openpyxl import load_workbook
 
 app = Flask(__name__)
 
