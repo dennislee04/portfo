@@ -4,6 +4,7 @@ import requests
 import hashlib
 import smtplib
 import os
+import pandas as pd
 from email.message import EmailMessage
 from openpyxl import load_workbook
 # workon my-virtualenv (to install libraries to & work on my virtual environment on Python Anywhere)
@@ -20,11 +21,8 @@ def my_home():
 def html_page(page_name):
     # write_type_to_file(page_name, type(page_name))
     if page_name == "Baseball.html":
-        #return render_template(page_name, Data="TestBaseBallReturn")
-        fileData = read_csv_to_html(page_name)
-        return render_template(page_name, Data=fileData)
-        # return render_template(page_name, myData=fileData)
-        # return render_template(page_name, sheet=fileData)
+        create_csv_to_html(page_name)
+        return render_template(page_name)
     else:
         return render_template(page_name)
 
@@ -50,12 +48,10 @@ def write_type_to_file(pagename, pagename_type):
     with open('type.txt', mode='a') as database0:
         filetype = database0.write(f'\n{pagename}, {pagename_type}')
 
-def read_csv_to_html(file):
-    filename = file
-    return filename
-    # loadfile = load_workbook(file)
-    # sheet = loadfile.active
-    # return sheet
+def create_csv_to_html(file):
+    filename = file.replace("html", "csv")
+    loadfile = pd.read_csv(filename)
+    html_file = loadfile.to_html(".\\templates\\Baseball.html")
 
 # This will write the user's contact information to the database.txt file
 def write_to_file(data):
