@@ -21,8 +21,12 @@ def my_home():
 def html_page(page_name):
     # write_type_to_file(page_name, type(page_name))
     if page_name == "Baseball.html":
-        create_csv_to_html(page_name)
-        return render_template(page_name)
+        #return render_template(page_name, Data="TestBaseBallReturn")
+        # create_csv_to_html(page_name)
+        return render_template(page_name, Data=fileData)
+        # return render_template(page_name, myData=fileData)
+        # return render_template(page_name, sheet=fileData)
+        # return render_template(page_name)
     else:
         return render_template(page_name)
 
