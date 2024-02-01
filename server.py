@@ -51,7 +51,7 @@ def write_type_to_file(pagename, pagename_type):
 
 def read_csv_to_html(file):
     filename = file
-    return filename
+    # return filename
     loadfile = load_workbook(file)
     sheet = book.active
     return sheet
