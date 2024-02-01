@@ -54,7 +54,7 @@ def read_csv_to_html(file):
     filename = file
     # return filename
     loadfile = load_workbook(file)
-    sheet = book.active
+    sheet = loadfile.active
     return sheet
 
 # This will write the user's contact information to the database.txt file
