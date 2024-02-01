@@ -2,18 +2,9 @@
 <html>
   <head>
     <title>Baseball CSV Database File</title>
-    <style>
-    * {
-      font-family: arial, sans-serif;
-      box-sizing: border-box;
-    }
-    #demo { border-collapse: collapse; }
-    #demo tr:nth-child(odd) { background: #f2f2f2; }
-    #demo td { padding: 10px; }
-    </style>
   </head>
   <body>
-	<small class="pull-left" style="color:red">{{Data}}</small>
+	<p><small class="pull-left" style="color:red">{{Data}}</small></p>
     <table id="MyData">
       {% for row in range(1, sheet.max_row + 1) %}
       <tr>
