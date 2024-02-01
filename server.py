@@ -22,9 +22,9 @@ def html_page(page_name):
     if page_name == "Baseball.html":
         # return render_template(page_name, Data="TestBaseBallReturn")
         fileData = read_csv_to_html(page_name)
-        # return render_template(page_name, Data=fileData)
+        return render_template(page_name, Data=fileData)
         # return render_template(page_name, myData=fileData)
-        return render_template(page_name, sheet=fileData)
+        # return render_template(page_name, sheet=fileData)
     else:
         return render_template(page_name)
 
@@ -52,10 +52,10 @@ def write_type_to_file(pagename, pagename_type):
 
 def read_csv_to_html(file):
     filename = file
-    # return filename
-    loadfile = load_workbook(file)
-    sheet = loadfile.active
-    return sheet
+    return filename
+    #loadfile = load_workbook(file)
+    #sheet = loadfile.active
+    #return sheet
 
 # This will write the user's contact information to the database.txt file
 def write_to_file(data):
