@@ -50,6 +50,7 @@ def submit_form():
         return 'something went wrong. Try again!'
 
 
+# this is for routing files & allowing users to download files from the server
 @app.route('/downloads/<id>')
 def downloads(id):
     if id == 'Baseball.csv':
@@ -61,11 +62,13 @@ def downloads(id):
     return send_file(path, as_attachment=True)
 
 
+# This function will read the inputed csv file, from the server
 def read_csv_file(file):
     data = pd.read_csv(file)
     return data
 
 
+# This function is used to help be diagnose issues, by writing the variable & its' type to a file
 def write_type_to_file(pagename, pagename_type):
     with open('type.txt', mode='a') as database0:
         # os.getcwd()
@@ -74,6 +77,7 @@ def write_type_to_file(pagename, pagename_type):
         filetype = database0.write(f'\n{pagename}, {pagename_type}, {dt_string}')
 
 
+# This will read an existing CSV file from the server & will create an html file of the data to display
 def create_csv_to_html(file):
     filename = file.replace("html", "csv")
     loadfile = pd.read_csv("./portfo/data_files/" + filename)
@@ -99,6 +103,9 @@ def write_to_csv(data):
         csv_writer.writerow([email, subject, message])
 
 
+# This will send an email to myself, the inputed user's email address, with the sender as me (leedennis04@gmail.com)
+# Using a Gmail API: https://console.cloud.google.com/apis/api/gmail.googleapis.com/
+# That I had created under my gmail account
 def send_email(data):
     email = EmailMessage()
     email['from'] = 'leedennis04@gmail.com'
@@ -165,7 +172,6 @@ def get_password_leaks(hashes, hash_to_check):
             return count
     return 0
 
-# open CSV file in web-browser
 
 """
 @app.route('/index.html')
