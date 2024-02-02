@@ -59,7 +59,7 @@ def create_csv_to_html(file):
     filename = file.replace("html", "csv")
     loadfile = pd.read_csv("./portfo/data_files/" + filename)
     write_type_to_file(loadfile, type(filename))
-    html_file = loadfile.to_html(".portfo/templates/Baseball.html")
+    html_file = loadfile.to_html("./portfo/templates/Baseball.html")
     write_type_to_file(html_file, type(html_file))
 
 
