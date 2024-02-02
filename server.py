@@ -51,8 +51,8 @@ def downloads(id):
         path = './data_files/Baseball.csv'
     else:
         return 'something went wrong with the download. Try again!'
-    write_type_to_file(os.getcwd(), type(os.getcwd()))
-    write_type_to_file(path, type(path))
+    # write_type_to_file(os.getcwd(), type(os.getcwd()))
+    # write_type_to_file(path, type(path))
     return send_file(path, as_attachment=True)
 
 
