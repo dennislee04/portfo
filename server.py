@@ -25,7 +25,7 @@ def html_page(page_name):
         create_csv_to_html(page_name)
         return render_template(page_name)
     elif page_name == "worktwo.html":
-        data = pd.read_csv('Baseball.csv').head(6)
+        data = pd.read_csv('./portfo/data_files/Baseball.csv').head(6)
         return render_template(page_name, tables=[data.to_html()], titles=[''])
     else:
         return render_template(page_name)
