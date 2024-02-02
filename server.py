@@ -24,6 +24,9 @@ def html_page(page_name):
     if page_name == "Baseball.html":
         create_csv_to_html(page_name)
         return render_template(page_name)
+    elif page_name == "worktwo.html":
+        data = pd.read_csv('Baseball.csv').head(6)
+        return render_template(page_name, tables=[data.to_html()], titles=[''])
     else:
         return render_template(page_name)
 
