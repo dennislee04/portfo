@@ -80,15 +80,16 @@
           <label>Select a Basic Statistics Function to preform on Baseball.CSV data set</label>
           <form action="submit_form" method="POST" name="StatsBasic">
             <select name="basicStatics" id="basicStatics">
-            <option value="mean">Mean</option>
-            <option value="medium">Medium</option>
-            <option value="mode">Mode</option>
-            <option value="correlation">Correlation</option>
-            <option value="standardDeviation">Standard Deviation</option>
+              <option value="mean">Mean</option>
+              <option value="medium">Medium</option>
+              <option value="mode">Mode</option>
+              <option value="correlation">Correlation</option>
+              <option value="standardDeviation">Standard Deviation</option>
             </select>
             <select name="rowOneBaseball" id="rowOneBaseball" >
-            {% for record in rowOne %}
-            <option value= "{{record}}" SELECTED>{{record}}</option>"
+              <option value="all">All</option>
+              {% for record in rowOne %}
+              <option value= "{{record}}" SELECTED>{{record}}</option>"
             {% endfor %}
             </select>
             <button type="submit" value="basicStats" style="height:21px; width:100px;">Get Results</button>
