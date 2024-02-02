@@ -59,7 +59,7 @@ def create_csv_to_html(file):
     # return (file + " test")
     filename = file.replace("html", "csv")
     # write_type_to_file(filename, type(filename))
-    loadfile = pd.read_csv("./portfo/csv_files/" + filename)
+    loadfile = pd.read_csv("./portfo/data_files/" + filename)
     write_type_to_file(loadfile, type(filename))
     html_file = loadfile.to_html("./templates/Baseball.html")
     write_type_to_file(html_file, type(html_file))
@@ -67,7 +67,7 @@ def create_csv_to_html(file):
 
 # This will write the user's contact information to the database.txt file
 def write_to_file(data):
-    with open('./portfo/csv_files/database.txt', mode='a') as database:
+    with open('./portfo/data_files/database.txt', mode='a') as database:
         email = data["email"]
         subject = data["subject"]
         message = data["message"]
@@ -76,7 +76,7 @@ def write_to_file(data):
 
 # This will write the user's contact information to the database.csv file
 def write_to_csv(data):
-    with open('./portfo/csv_files/database.csv', mode='a', newline='') as database2:
+    with open('./portfo/data_files/database.csv', mode='a', newline='') as database2:
         email = data["email"]
         subject = data["subject"]
         message = data["message"]
