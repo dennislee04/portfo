@@ -5,7 +5,6 @@ import hashlib
 import smtplib
 import os
 import pandas as pd
-from datetime import date
 from email.message import EmailMessage
 # from openpyxl import load_workbook
 # workon my-virtualenv (to install libraries to & work on my virtual environment on Python Anywhere)
@@ -50,9 +49,7 @@ def submit_form():
 
 def write_type_to_file(pagename, pagename_type):
     with open('type.txt', mode='a') as database0:
-        now = datetime.now()
-        dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-        filetype = database0.write(f'\n{pagename}, {pagename_type}, dt_string')
+        filetype = database0.write(f'\n{pagename}, {pagename_type}')
 
 
 def create_csv_to_html(file):
