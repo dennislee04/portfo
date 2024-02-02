@@ -29,7 +29,7 @@ def html_page(page_name):
         firstFive = data.head(6)
         rowOne = data.head(1)
         columnOne = data.iloc[:, 0]
-        return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne)
+        return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne)
     else:
         return render_template(page_name)
 
