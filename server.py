@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect, send_file, flash
+from flask import Flask, render_template, url_for, request, redirect, send_file
 import csv
 import requests
 import hashlib
@@ -53,8 +53,6 @@ def downloads(id):
         return 'something went wrong with the download. Try again!'
     write_type_to_file(os.getcwd(), type(os.getcwd()))
     write_type_to_file(path, type(path))
-    flash("certificate printed", "download_file")
-    flash(os.getcwd(), "download_file")
     return send_file(path, as_attachment=True)
 
 
