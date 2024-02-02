@@ -51,7 +51,7 @@ def downloads(id):
         #path = './portfo/data_files/Baseball.csv'
     #else:
         #return 'something went wrong with the download. Try again!'
-    path = './portfo/data_files/Baseball.csv'
+    path = 'type.txt'
     return send_file(path, as_attachment=True)
 
 
