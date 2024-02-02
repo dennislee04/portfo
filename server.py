@@ -76,7 +76,7 @@ def write_to_file(data):
 
 # This will write the user's contact information to the database.csv file
 def write_to_csv(data):
-    with open('database.csv', mode='a', newline='') as database2:
+    with open('./portfo/csv_files/database.csv', mode='a', newline='') as database2:
         email = data["email"]
         subject = data["subject"]
         message = data["message"]
