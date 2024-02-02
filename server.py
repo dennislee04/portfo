@@ -25,8 +25,12 @@ def html_page(page_name):
         create_csv_to_html(page_name)
         return render_template(page_name)
     elif page_name == "worktwo.html":
-        data = pd.read_csv('./portfo/data_files/Baseball.csv').head(6)
-        return render_template(page_name, tables=[data.to_html()], titles=[''])
+        #data = pd.read_csv('./portfo/data_files/Baseball.csv').head(6)
+        #return render_template(page_name, tables=[data.to_html()], titles=[''])
+        data = read_csv_file('Baseball.csv')
+        data = data.head(6)
+        rowOne = data.head(1)
+        return render_template(page_name, tables=[data.to_html()], titles=[''], rowOne=rowOne)
     else:
         return render_template(page_name)
 
@@ -57,6 +61,11 @@ def downloads(id):
     # write_type_to_file(os.getcwd(), type(os.getcwd()))
     # write_type_to_file(path, type(path))
     return send_file(path, as_attachment=True)
+
+
+def read_csv_file(file):
+    data = pd.read_csv(file)
+    return data
 
 
 def write_type_to_file(pagename, pagename_type):
