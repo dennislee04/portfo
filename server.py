@@ -27,7 +27,7 @@ def html_page(page_name):
     elif page_name == "worktwo.html":
         #data = pd.read_csv('./portfo/data_files/Baseball.csv').head(6)
         #return render_template(page_name, tables=[data.to_html()], titles=[''])
-        data = read_csv_file('Baseball.csv')
+        data = read_csv_file('./portfo/data_files/Baseball.csv/Baseball.csv')
         data = data.head(6)
         rowOne = data.head(1)
         return render_template(page_name, tables=[data.to_html()], titles=[''], rowOne=rowOne)
