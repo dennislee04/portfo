@@ -25,8 +25,6 @@ def html_page(page_name):
         create_csv_to_html(page_name)
         return render_template(page_name)
     elif page_name == "worktwo.html":
-        #data = pd.read_csv('./portfo/data_files/Baseball.csv').head(6)
-        #return render_template(page_name, tables=[data.to_html()], titles=[''])
         data = read_csv_file('./portfo/data_files/Baseball.csv')
         data = data.head(6)
         rowOne = data.head(1)
@@ -79,7 +77,7 @@ def write_type_to_file(pagename, pagename_type):
 def create_csv_to_html(file):
     filename = file.replace("html", "csv")
     loadfile = pd.read_csv("./portfo/data_files/" + filename)
-    html_file = loadfile.to_html("./portfo/templates/Baseball.html")
+    html_file = loadfile.to_html("./portfo/templates/file")
 
 
 # This will write the user's contact information to the database.txt file
