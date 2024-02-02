@@ -53,9 +53,7 @@ def write_type_to_file(pagename, pagename_type):
         filetype = database0.write(f'\n{pagename}, {pagename_type}')
 
 def create_csv_to_html(file):
-    filename = file.replace("html", "csv")
-    loadfile = pd.read_csv(filename)
-    html_file = loadfile.to_html(".\\templates\\Baseball.html")
+    return (file+"test")
 
 # This will write the user's contact information to the database.txt file
 def write_to_file(data):
