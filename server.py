@@ -48,7 +48,7 @@ def submit_form():
 @app.route('/downloads/<id>')
 def downloads(id):
     if id == 'Baseball.csv':
-        path = './portfo/data_files/Baseball.csv'
+        path = './data_files/Baseball.csv'
     else:
         return 'something went wrong with the download. Try again!'
     write_type_to_file(os.getcwd(), type(os.getcwd()))
