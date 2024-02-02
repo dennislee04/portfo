@@ -50,6 +50,7 @@ def downloads(id):
     if id == 'Baseball.csv':
         # write_type_to_file(id, type(id))
         path = './portfo/data_files/Baseball.csv'
+        write_type_to_file(os.getcwd(), type(os.getcwd()))
         write_type_to_file(path, type(path))
     else:
         return 'something went wrong with the download. Try again!'
@@ -58,6 +59,7 @@ def downloads(id):
 
 def write_type_to_file(pagename, pagename_type):
     with open('type.txt', mode='a') as database0:
+        # os.getcwd()
         now = datetime.now()
         dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
         filetype = database0.write(f'\n{pagename}, {pagename_type}, {dt_string}')
