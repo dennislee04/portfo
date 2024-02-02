@@ -100,12 +100,18 @@
             <option value="mode">Mode</option>
             <option value="correlation">Correlation</option>
             <option value="standardDeviation">Standard Deviation</option>
+            <select name="columnOneTeams" id="columnOneTeams" >
+            <!--<option value="all">All</option>-->
+              {% for record in columnOne %}
+              <option value= "{{record}}" SELECTED>{{record}}</option>"
+              {% endfor %}
+            </select>
             </select>
             <select name="rowOneBaseball" id="rowOneBaseball" >
-            <option value="all">All</option>
-            {% for record in rowOne %}
-            <option value= "{{record}}" SELECTED>{{record}}</option>"
-            {% endfor %}
+              <option value="all">All</option>
+              {% for record in rowOne %}
+              <option value= "{{record}}" SELECTED>{{record}}</option>"
+              {% endfor %}
             </select>
             <button type="submit" value="basicStats" style="height:21px; width:100px;">Get Results</button>
           </form>

@@ -26,8 +26,9 @@ def html_page(page_name):
         return render_template(page_name)
     elif page_name == "worktwo.html":
         data = read_csv_file('./portfo/data_files/Baseball.csv')
-        data = data.head(6)
+        firstFive = data.head(6)
         rowOne = data.head(1)
+        columnOne = data.iloc[:, 0]
         return render_template(page_name, tables=[data.to_html()], titles=[''], rowOne=rowOne)
     else:
         return render_template(page_name)
