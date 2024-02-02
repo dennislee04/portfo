@@ -45,6 +45,15 @@ def submit_form():
         return 'something went wrong. Try again!'
 
 
+@app.route('/downloads/<id>')
+def downloads(id):
+    if id == 'Baseball.csv':
+        path = './portfo/data_files/Baseball.csv'
+    else:
+        return 'something went wrong with the download. Try again!'
+    return send_file(path, as_attachment=True)
+
+
 def write_type_to_file(pagename, pagename_type):
     with open('type.txt', mode='a') as database0:
         now = datetime.now()
