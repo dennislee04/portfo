@@ -77,6 +77,19 @@
             {{ record|safe }} 
             {% endfor %}
           </table>
+          <p>***Abbreviated Titles***</p>
+          <list class="abbreviatedDataItemsList">
+            <ul>*Runs Scored (RS)*</ul>
+            <ul>*Runs Allowed (RA)*</ul>
+            <ul>*Wins (W)*</ul>
+            <ul>*On-Base Percentage (OBP)*</ul>
+            <ul>*Slugging Percentage (SLG)*</ul>
+            <ul>*Battling Average (BA)*</ul>
+            <ul>*Playoffs (binary)*</ul>
+            <ul>*Games Played (G)*</ul>
+            <ul>*Opponent On-Base Percentage (OOBP)*</ul>
+            <ul>*Opponent Slugging Percentage (OSLG)*</ul>
+          </list>
           <label>Select a Basic Statistics Function to preform on Baseball.CSV data set</label>
           <form action="submit_form" method="POST" name="StatsBasic">
             <select name="basicStatics" id="basicStatics">
