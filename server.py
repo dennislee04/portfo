@@ -38,7 +38,7 @@ def submit_form():
         try:
             data = request.form.to_dict()
             # print(data)
-            # write_to_file(data)
+            write_to_file(data)
             write_to_csv(data)
             send_email(data)
             return redirect('thankyou.html')
@@ -67,7 +67,7 @@ def create_csv_to_html(file):
 
 # This will write the user's contact information to the database.txt file
 def write_to_file(data):
-    with open('database.txt', mode='a') as database:
+    with open('./portfo/csv_files/database.txt', mode='a') as database:
         email = data["email"]
         subject = data["subject"]
         message = data["message"]
