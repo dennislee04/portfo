@@ -56,7 +56,7 @@ def create_csv_to_html(file):
     # return (file + " test")
     filename = file.replace("html", "csv")
     loadfile = pd.read_csv(filename)
-    html_file = loadfile.to_html(".\\templates\\Baseball.html")
+    html_file = loadfile.to_html("./templates/Baseball.html")
 
 
 # This will write the user's contact information to the database.txt file
