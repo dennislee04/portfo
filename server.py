@@ -63,7 +63,14 @@ def submit_formula():
                 firstFive = first_five_data_row_csv('./portfo/data_files/Baseball.csv')
                 rowOne = read_csv_row_one_csv('./portfo/data_files/Baseball.csv')
                 columnOne = read_csv_column_one_csv('./portfo/data_files/Baseball.csv')
-                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaChoosen=basic)
+                if basic == "Mean":
+                    df = pd.read_csv("./portfo/data_files/Baseball.csv")
+                    formulaUsed = f"df.loc[df.Team == \"{team}\"].{rowoneData}.mean()"
+                    results = "Place holder for results"
+                else:
+                    formulaUsed = "No formula was used"
+                    results = "No Results"
+                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="Formula Used: " + formulaUsed, formulaChoosen=results)
             else:
                 return (str(pagename) + " Not Found")
         except:
