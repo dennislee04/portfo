@@ -96,7 +96,7 @@
             </list>
           </div>
           <label>Select a Basic Statistics Function to preform on Baseball.CSV data set</label>
-          <form action="submit_form" method="GET" name="StatsBasic">
+          <form action="submit_formula" method="GET" name="StatsBasic">
             <table class="formulaOptions">
                 <tr>
                 <td>Statstics Formulas</td>
@@ -114,7 +114,7 @@
                   </select>
                 </td>
                 <td>
-                  <select name="columnOneTeams" id="columnOneTeams" >
+                  <select name="columnOneData" id="columnOneData" >
                   <!--<option value="all">All</option>-->
                   {% for record in columnOne %}
                   <option value= "{{record}}" SELECTED>{{record}}</option>"
@@ -122,7 +122,7 @@
                   </select>
                 </td>
                 <td>
-                  <select name="rowOneBaseball" id="rowOneBaseball" >
+                  <select name="rowOneData" id="rowOneData" >
                   <option value="all">All</option>
                   {% for record in rowOne %}
                   <option value= "{{record}}" SELECTED>{{record}}</option>"
