@@ -63,13 +63,15 @@ def submit_formula():
                 firstFive = first_five_data_row_csv('./portfo/data_files/Baseball.csv')
                 rowOne = read_csv_row_one_csv('./portfo/data_files/Baseball.csv')
                 columnOne = read_csv_column_one_csv('./portfo/data_files/Baseball.csv')
+                df = pd.read_csv("./portfo/data_files/Baseball.csv")
                 if basic == "Mean":
-                    df = pd.read_csv("./portfo/data_files/Baseball.csv")
                     formulaUsed = f"Mean Formula Used: df.loc[df.Team == \"{team}\"].{rowoneData}.mean()"
                     results = "Place holder for results"
                 elif basic == "Medium":
-                    df = pd.read_csv("./portfo/data_files/Baseball.csv")
                     formulaUsed = f"Medium Formula Used: df.loc[df.Team == \"{team}\"].{rowoneData}.meduim()"
+                    results = "Place holder for results"
+                elif basic == "Mode":
+                    formulaUsed = f"Mode Formula Used: df.loc[df.Team == \"{team}\"].{rowoneData}.mode()"
                     results = "Place holder for results"
                 else:
                     formulaUsed = "No formula was used"
