@@ -58,7 +58,7 @@ def submit_formula():
             page_name = request.args.get('htmlForm')
             basic = request.args.get('basicStat')
             team = request.args.get('columnOneData')
-            rowOne = request.args.get('rowOneData')
+            rowoneData = request.args.get('rowOneData')
             if page_name == "worktwo.html":
                 firstFive = first_five_data_row_csv('./portfo/data_files/Baseball.csv')
                 rowOne = read_csv_row_one_csv('./portfo/data_files/Baseball.csv')
