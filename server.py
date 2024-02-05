@@ -58,7 +58,13 @@ def submit_formula():
             basic = request.args.get('basicStat')
             team = request.args.get('columnOneData')
             rowOne = request.args.get('rowOneData')
-            return redirect('worktwo.html', formulaChoosen=string(basic))
+            if page_name == "worktwo.html":
+                firstFive = first_five_data_row_csv('Baseball.csv')
+                rowOne = read_csv_row_one_csv('Baseball.csv')
+                columnOne = read_csv_column_one_csv('Baseball.csv')
+                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaChoosen=basic)
+            else:
+                return (str(pagename) + " Not Found")
         except:
             return 'formula did not work'
     else:
