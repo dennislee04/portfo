@@ -1,0 +1,21 @@
+.abbreviatedDataItemsList ul{
+	line-height:10px;
+	}
+
+.formulaOptions tr td{
+	height:20px;
+	width:140px;
+	}
+
+.formulaOptions tr td select{
+	height:20px;
+	width:140px;
+	}
+
+.formulaOptions tr td button{
+	height:20px;
+	width:140px;
+	margin-bottom:5px;
+	text-align:left;
+	line-height: 1em;
+	}
