@@ -25,10 +25,10 @@ def html_page(page_name):
         create_csv_to_html(page_name)
         return render_template(page_name)
     elif page_name == "worktwo.html":
-        data = read_csv_file('./portfo/data_files/Baseball.csv')
-        firstFive = data.head(6)
-        rowOne = data.head(1)
-        columnOne = data.iloc[:, 0]
+        # data = read_csv_file('./portfo/data_files/Baseball.csv')
+        firstFive = first_five_data_row_csv('./portfo/data_files/Baseball.csv')
+        rowOne = read_csv_row_one_csv('./portfo/data_files/Baseball.csv')
+        columnOne = read_csv_column_one_csv('./portfo/data_files/Baseball.csv')
         return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne)
     else:
         return render_template(page_name)
@@ -75,6 +75,24 @@ def downloads(id):
     # write_type_to_file(os.getcwd(), type(os.getcwd()))
     # write_type_to_file(path, type(path))
     return send_file(path, as_attachment=True)
+
+
+# This function will read the inputed csv file & return the first column, from the server
+def read_csv_column_one_csv(file):
+    data = read_csv_file(file)
+    return data.iloc[:, 0]
+
+
+# This function will read the inputed csv file & return the first row, from the server
+def read_csv_row_one_csv(file):
+    data = pd.read_csv(file)
+    return data.head(1)
+
+
+# This function will read the inputed csv file & return the first 6 rows, from the server
+def first_five_data_row_csv(file):
+    data = pd.read_csv(file)
+    return data.head(6)
 
 
 # This function will read the inputed csv file, from the server
