@@ -65,18 +65,18 @@ def submit_formula():
                 columnOne = read_csv_column_one_csv('./portfo/data_files/Baseball.csv')
                 df = pd.read_csv("./portfo/data_files/Baseball.csv")
                 if basic == "Mean":
-                    formulaUsed = f"Mean Formula Used: df.loc[df.Team == \"{team}\"].{rowoneData}.mean()"
+                    formulaUsed = f"df.loc[df.Team == \"{team}\"].{rowoneData}.mean()"
                     results = "Place holder for results"
                 elif basic == "Medium":
-                    formulaUsed = f"Medium Formula Used: df.loc[df.Team == \"{team}\"].{rowoneData}.meduim()"
+                    formulaUsed = f"df.loc[df.Team == \"{team}\"].{rowoneData}.meduim()"
                     results = "Place holder for results"
                 elif basic == "Mode":
-                    formulaUsed = f"Mode Formula Used: df.loc[df.Team == \"{team}\"].{rowoneData}.mode()"
+                    formulaUsed = f"df.loc[df.Team == \"{team}\"].{rowoneData}.mode()"
                     results = "Place holder for results"
                 else:
                     formulaUsed = "No formula was used"
                     results = "No Results"
-                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed=formulaUsed, formulaChoosen=basic, results=results)
+                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="Formula Used" + formulaUsed, formulaChoosen=basic, results=results)
             else:
                 return (str(pagename) + " Not Found")
         except:
