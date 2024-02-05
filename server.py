@@ -51,6 +51,20 @@ def submit_form():
         return 'something went wrong. Try again!'
 
 
+@app.route('/submit_formula', methods=['POST', 'GET'])
+def submit_formula():
+    if request.method == "GET":
+        try:
+            basic = request.args.get('basicStat')
+            team = request.args.get('columnOneData')
+            rowOne = request.args.get('rowOneData')
+            return redirect('worktwo.html', formulaChoosen=string(basic))
+        except:
+            return 'formula did not work'
+    else:
+        return 'something went wrong with the formula. Try again!'
+
+
 # this is for routing files & allowing users to download files from the server
 @app.route('/downloads/<id>')
 def downloads(id):
