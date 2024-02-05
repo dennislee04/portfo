@@ -65,12 +65,16 @@ def submit_formula():
                 columnOne = read_csv_column_one_csv('./portfo/data_files/Baseball.csv')
                 if basic == "Mean":
                     df = pd.read_csv("./portfo/data_files/Baseball.csv")
-                    formulaUsed = f"df.loc[df.Team == \"{team}\"].{rowoneData}.mean()"
+                    formulaUsed = f"Mean Formula Used: df.loc[df.Team == \"{team}\"].{rowoneData}.mean()"
+                    results = "Place holder for results"
+                elif basic == "Medium":
+                    df = pd.read_csv("./portfo/data_files/Baseball.csv")
+                    formulaUsed = f"Medium Formula Used: df.loc[df.Team == \"{team}\"].{rowoneData}.meduim()"
                     results = "Place holder for results"
                 else:
                     formulaUsed = "No formula was used"
                     results = "No Results"
-                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="Formula Used: " + formulaUsed, formulaChoosen=results)
+                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed=formulaUsed, formulaChoosen=results)
             else:
                 return (str(pagename) + " Not Found")
         except:
