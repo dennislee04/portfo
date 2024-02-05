@@ -76,7 +76,7 @@ def submit_formula():
                 else:
                     formulaUsed = "No formula was used"
                     results = "No Results"
-                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="Formula Used" + formulaUsed, formulaChoosen=basic, results=results)
+                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="Formula Used:" + formulaUsed, formulaChoosen=basic, results=results)
             else:
                 return (str(pagename) + " Not Found")
         except:
