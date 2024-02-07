@@ -79,8 +79,14 @@ def submit_formula():
                 return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="Formula Used:" + formulaUsed, formulaChoosen=basic, results=results)
             else:
                 return (str(pagename) + " Not Found")
-        except:
-            return 'formula did not work'
+        except RuntimeError as rte:
+            return {rte}
+        except TypeError as te:
+            return {te}
+        except NameError as ne:
+            return {ne}
+        #except:
+            #return 'formula did not work'
     else:
         return 'something went wrong with the formula. Try again!'
 
