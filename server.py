@@ -91,6 +91,15 @@ def submit_formula():
                         formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].mode()'
                         altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.mode()'
                         results = df.loc[(df.Team == team, rowoneData)].mode()
+                elif basic == "StanDev":
+                    if team == "All":
+                        formulaUsed = f'df.loc[:, \"{rowoneData}\"].std()'
+                        altformula = f'df.{rowoneData}.std()'
+                        results = df.loc[:, rowoneData].std()
+                    else:
+                        formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].std()'
+                        altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.std()'
+                        results = df.loc[(df.Team == team, rowoneData)].std()
                 else:
                     formulaUsed = "No formula was used"
                     results = "No Results"
