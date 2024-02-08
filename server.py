@@ -69,8 +69,9 @@ def submit_formula():
                     altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.mean()'
                     results = df.loc[(df.Team == team, rowoneData)].mean()
                 elif basic == "Medium":
-                    formulaUsed = f"df.loc[df.Team == \"{team}\"].{rowoneData}.meduim()"
-                    results = "Place holder for results"
+                    formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].median()'
+                    altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.median()'
+                    results = df.loc[(df.Team == team, rowoneData)].median()
                 elif basic == "Mode":
                     formulaUsed = f"df.loc[df.Team == \"{team}\"].{rowoneData}.mode()"
                     results = "Place holder for results"
