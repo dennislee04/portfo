@@ -156,7 +156,7 @@ def submit_correlation():
                 sns.heatmap(resultsOne, annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')
                 canvas = FigureCanvas(fig)
                 img = io.BytesIO()
-                fig.savefig(os.path.join('static', 'assets', 'plots', 'heatmap.png'))   
+                # fig.savefig(os.path.join('static', 'assets', 'plots', 'heatmap.png'))   
 
                 return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()], resultsTwo=resultsTwo)
             else:
