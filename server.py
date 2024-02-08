@@ -141,9 +141,10 @@ def submit_correlation():
                 formulaUsedTwo = f'df_correlation.corr()'
                 # 
                 # results = df[category_one, category_two, category_three]
-                results = "Place holder for results"
+                resultsOne = "Place holder for results One"
+                resultsTwo = "Place holder for results Two"
                 # return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne)
-                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, results=results)
+                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, resultsOne=resultsOne, resultsTwo=resultsTwo)
             else:
                 return (str(page_name) + " Not Found")
         except RuntimeError as rte:
