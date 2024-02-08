@@ -65,9 +65,14 @@ def submit_formula():
                 columnOne = read_csv_column_one_csv('./portfo/data_files/Baseball.csv')
                 df = pd.read_csv("./portfo/data_files/Baseball.csv")
                 if basic == "Mean":
-                    formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].mean()'
-                    altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.mean()'
-                    results = df.loc[(df.Team == team, rowoneData)].mean()
+                    if team == "All":
+                        formulaUsed = f'df.loc[:, \"{rowoneData}\"].mean()'
+                        altformula = f'df.{rowoneData}.mean()'
+                        results = df.loc[:, rowoneData].mean()
+                    else:
+                        formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].mean()'
+                        altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.mean()'
+                        results = df.loc[(df.Team == team, rowoneData)].mean()
                 elif basic == "Medium":
                     formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].median()'
                     altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.median()'
