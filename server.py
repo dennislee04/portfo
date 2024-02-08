@@ -136,14 +136,12 @@ def submit_correlation():
                 formulaUsed = f'df[[{category_one}, {category_two}, {category_three}]]'
                 formulaUsedTwo = f'df_correlation.corr()'
                 df_correlation = df[[category_one, category_two, category_three]]
-                resultsOne = "Place holder for results One"
-                #resultsOne = df_correlation.corr()
+                resultsOne = df_correlation.corr()
                 
                 
                 formulaUsedThree = "Place holder for Formula Three"
                 resultsTwo = "Place holder for results Two"
-                # return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne)
-                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=resultsOne, resultsTwo=resultsTwo)
+                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()], resultsTwo=resultsTwo)
             else:
                 return (str(page_name) + " Not Found")
         except RuntimeError as rte:

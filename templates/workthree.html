@@ -132,7 +132,12 @@
 		  </form>
 		  <p style="margin:0px;">{{formulaUsed}}</p>
 		  <p style="margin:0px;">{{formulaUsedTwo}}</p>
-		  <p style="color:red;margin:0px;">{{resultsOne}}</p>
+		  <p>
+				{% for record in resultsOne %} 
+				<!--<h2>{{titles[loop.index]}}</h2>-->
+				{{ record|safe }} 
+				{% endfor %}
+		  </p>
 		  <p style="margin:0px;">{{formulaUsedThree}}</p>
 		  <p style="color:red;margin:0px;">{{resultsTwo}}</p>
 		</div>
