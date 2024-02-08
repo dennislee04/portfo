@@ -154,6 +154,7 @@ def submit_correlation():
                 formulaUsedThree = f"sns.heatmap(data = df_correlation.corr(), annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')"
                 resultsThree = sns.heatmap(resultsOne, annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')
                 sns.heatmap(resultsOne, annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')
+                canvas = FigureCanvas(fig)
 
 
                 return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()], resultsTwo=resultsTwo, resultsThree=resultsThree)
