@@ -15,10 +15,11 @@
   <link rel="apple-touch-icon" sizes="180x180" href="static/assets/apple-icon-180x180.png">
   <link href="static/assets/favicon.ico" rel="icon">
 
-  <title>Work One</title>
+  <title>Work</title>
 
-<link href="static/main.3f6952e4.css" rel="stylesheet"></head>
-
+	<link href="static/main.3f6952e4.css" rel="stylesheet">
+	<link href="static/myCSS.css" rel="stylesheet">
+</head>
 <body class="">
 <div id="site-border-left"></div>
 <div id="site-border-right"></div>
@@ -41,7 +42,7 @@
           <li><a href="./works.html" title="">02 : Works</a></li>
           <li><a href="./about.html" title="">03 : About me</a></li>
           <li><a href="./contact.html" title="">04 : Contact</a></li>
-          <!--<li><a href="./components.html" title="">05 : Components</a></li>-->
+          <!--<li><li><a href="./components.html" title="">05 : Components</a></li></li>-->
         </ul>
 
 
@@ -66,33 +67,77 @@
         <img src="static/assets/images/work001-01.jpg" class="img-responsive" alt="">
         <div class="card-container">
           <div class="text-center">
-            <h1 class="h2">001 : Password Checker (SHA1)</h1>
+            <h1 class="h2">003 : Basic Statistics Correlation:</h1>
           </div>
-          <p>This is a simple password checker project (SHA1), that is setup to use <a href="https://haveibeenpwned.com/Passwords" target="_blank">"https://haveibeenpwned.com/Passwords"</a> API. Put in your password, click the check button & it will let you know how many times your password was found in their database.</p>
-
-          <blockquote>
-            <p>"Do you have a good Password?"</p>
-            <p style="color:red">{{data}}</p>
-          </blockquote>
-
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-               <form action="password_check" method="post" class="reveal-content">
-                  <div class="row">
-                    <div class="col-md-7">
-                      <div class="form-group">
-                        <input name="Password To Check" type="password" class="form-control" id="passwordcheck" placeholder="Password To Check">
-                      </div>
-                      <button type="submit" class="btn btn-default btn-lg" id="checkbutton">Check</button>
-                    </div>
-                  </div>
-                </form>
-            </div>
-          </div>
-        </div>
+          <p>This is a simple project using Python's libraries, pandas & seaborn, to do correlations against a Baseball.csv(<a href="Baseball.html" target="_blank">View CSV Online</a> / <a href="{{url_for('downloads', id='Baseball.csv')}}">Download CSV</a>) database file.</p>
+			<div style="line-height:15px;">
+			  <p>These are the first 5 records of this Baseball.CSV file</p>
+			  <table>
+				<!--Displaying the converted table-->
+				{% for record in tables %} 
+				<h2>{{titles[loop.index]}}</h2>  
+				{{ record|safe }} 
+				{% endfor %}
+			  </table>
+			  <p>***Abbreviated Titles***</p>
+			  <list class="abbreviatedDataItemsList">
+				<ul>*Runs Scored (RS)*</ul>
+				<ul>*Runs Allowed (RA)*</ul>
+				<ul>*Wins (W)*</ul>
+				<ul>*On-Base Percentage (OBP)*</ul>
+				<ul>*Slugging Percentage (SLG)*</ul>
+				<ul>*Battling Average (BA)*</ul>
+				<ul>*Playoffs (binary)*</ul>
+				<ul>*Games Played (G)*</ul>
+				<ul>*Opponent On-Base Percentage (OOBP)*</ul>
+				<ul>*Opponent Slugging Percentage (OSLG)*</ul>
+			  </list>
+			</div>
+		  <label>Select three columns of Baseball.CSV data set to get a Correlation Matrix </label>
+		  <!-- this action variable needs to be updated to its' own, and to create a route in the server.py file-->
+		  <form action="submit_correlation" method="GET" name="StatsCorrelation">
+			  <table class="formulaOptions">
+				  <tr><input type="hidden" name="htmlForm" value="workthree.html"></tr>
+			  	  <tr>
+						<td>Category 1</td>
+						<td>Category 2</td>
+						<td>Category 3</td>
+				  </tr>
+					    <td>
+						  <select name="category_one" id="category_one" >
+							{% for record in rowOne %}
+							<option value= "{{record}}" SELECTED>{{record}}</option>"
+							{% endfor %}
+						  </select>
+					  </td>
+					  <td>
+						  <select name="category_two" id="category_two" >
+							{% for record in rowOne %}
+							<option value= "{{record}}" SELECTED>{{record}}</option>"
+							{% endfor %}
+						  </select>
+					  </td>
+					  <td>
+						  <select name="category_three" id="category_three" >
+							{% for record in rowOne %}
+							<option value= "{{record}}" SELECTED>{{record}}</option>"
+							{% endfor %}
+						  </select>
+					  </td>
+					  <td>
+						  <button type="submit" value="basicCorrelation">Get Results</button>
+					  </td>
+				  </tr>
+			  </table>
+		  </form>
+		  <p style="color:red;margin:0px;">{{altformula}}</p>
+		  <p style="margin:0px;">{{formulaUsed}}</p>
+		  <p style="color:red;margin:0px;">{{formulaChoosen}}: {{results}}</p>
+		</div>
       </div>
 
-      <!--
+      
+      
       <div class="col-md-8 col-md-offset-2 section-container-spacer">
         <div class="row">
           <div class="col-xs-12 col-md-6">
@@ -105,10 +150,10 @@
           </div>
         </div>
       </div>
-      -->
-      <!--<div class="col-xs-12">
+
+      <div class="col-xs-12">
         <img src="static/assets/images/work001-04.jpg" class="img-responsive" alt="">
-      </div>-->
+      </div>
 
     </div>
   </div>
@@ -128,8 +173,7 @@
 <script>
   document.addEventListener("DOMContentLoaded", function (event) {
      navActivePage();
-    });
-</
+  });
 </script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
