@@ -7,8 +7,6 @@ import os
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import io
-import base64
 from pylab import savefig
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
@@ -155,7 +153,6 @@ def submit_correlation():
                 resultsThree = sns.heatmap(resultsOne, annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')
                 sns.heatmap(resultsOne, annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')
                 canvas = FigureCanvas(fig)
-                img = io.BytesIO()
 
 
                 return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()], resultsTwo=resultsTwo, resultsThree=resultsThree)
