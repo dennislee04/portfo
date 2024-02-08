@@ -104,21 +104,21 @@
 						<td>Category 3</td>
 				  </tr>
 					    <td>
-						  <select name="category_one" id="category_one" >
+						  <select name="category_one" id="category_one" class="category-listbox">
 							{% for record in rowOne %}
 							<option value= "{{record}}" SELECTED>{{record}}</option>"
 							{% endfor %}
 						  </select>
 					  </td>
 					  <td>
-						  <select name="category_two" id="category_two" >
+						  <select name="category_two" id="category_two" class="category-listbox">
 							{% for record in rowOne %}
 							<option value= "{{record}}" SELECTED>{{record}}</option>"
 							{% endfor %}
 						  </select>
 					  </td>
 					  <td>
-						  <select name="category_three" id="category_three" >
+						  <select name="category_three" id="category_three" class="category-listbox">
 							{% for record in rowOne %}
 							<option value= "{{record}}" SELECTED>{{record}}</option>"
 							{% endfor %}
@@ -181,6 +181,22 @@
   document.addEventListener("DOMContentLoaded", function (event) {
      navActivePage();
   });
+
+window.onload = function(){
+	let selects = $(".category-listbox");
+
+	selects.change(function() {
+		// getting all selected values
+		let selected = selects.map((i, s) => s.value).get();
+		selects.find("option").each(function(i, o) {
+			// disable option if it is selected in other selects
+			// (you can set the 'disabled' properly to true or false)
+			$(o).prop("disabled", o.value.length &&                 //enable empty values
+								  selected.includes(o.value) &&
+								  $(o).parent().val() !== o.value);
+			});
+		});
+
 </script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
@@ -196,6 +212,7 @@
   ga('send', 'pageview');
 </script>
 
---> <script type="text/javascript" src="static/main.70a66962.js"></script></body>
+--> <script type="text/javascript" src="static/main.70a66962.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script></body>
 
 </html>
