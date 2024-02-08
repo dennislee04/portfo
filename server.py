@@ -6,6 +6,8 @@ import smtplib
 import os
 import pandas as pd
 import seaborn as sns
+import matplotlib
+matplotlib.use('agg')
 import matplotlib.pyplot as plt
 import io
 import base64
@@ -156,7 +158,7 @@ def submit_correlation():
                 sns.heatmap(resultsOne, annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')
                 canvas = FigureCanvas(fig)
                 img = io.BytesIO()
-                fig.savefig(os.path.join('static', 'assets', 'plots', 'heatmap.png'), dpi=50)
+                fig.savefig(os.path.join('static', 'assets', 'plots', 'heatmap.png'), dpi=75)
                 plt.close(fig)
 
                 return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()], resultsTwo=resultsTwo)
