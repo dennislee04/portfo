@@ -73,8 +73,9 @@ def submit_formula():
                     altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.median()'
                     results = df.loc[(df.Team == team, rowoneData)].median()
                 elif basic == "Mode":
-                    formulaUsed = f"df.loc[df.Team == \"{team}\"].{rowoneData}.mode()"
-                    results = "Place holder for results"
+                    formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].mode()'
+                    altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.mode()'
+                    results = df.loc[(df.Team == team, rowoneData)].mode()
                 else:
                     formulaUsed = "No formula was used"
                     results = "No Results"
