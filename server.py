@@ -57,12 +57,12 @@ def submit_form():
 
 @app.route('/submit_formula', methods=['POST', 'GET'])
 def submit_formula():
-    if request.method == "GET":
+    if request.method == "POST":
         try:
-            page_name = request.args.get('htmlForm')
-            basic = request.args.get('basicStat')
-            team = request.args.get('columnOneData')
-            rowoneData = request.args.get('rowOneData')
+            page_name = request.form.get('htmlForm')
+            basic = request.form.get('basicStat')
+            team = request.form.get('columnOneData')
+            rowoneData = request.form.get('rowOneData')
             if page_name == "worktwo.html":
                 firstFive = first_five_data_row_csv('./portfo/data_files/Baseball.csv')
                 rowOne = read_csv_row_one_csv('./portfo/data_files/Baseball.csv')
@@ -124,12 +124,12 @@ def submit_formula():
 
 @app.route('/submit_correlation', methods=['POST', 'GET'])
 def submit_correlation():
-    if request.method == "GET":
+    if request.method == "POST":
         try:
-            page_name = request.args.get('htmlForm')
-            category_one = request.args.get('category_one')
-            category_two = request.args.get('category_two')
-            category_three = request.args.get('category_three')
+            page_name = request.form.get('htmlForm')
+            category_one = request.form.get('category_one')
+            category_two = request.form.get('category_two')
+            category_three = request.form.get('category_three')
             #return category_three
             if page_name == "workthree.html":
                 firstFive = first_five_data_row_csv('./portfo/data_files/Baseball.csv')
