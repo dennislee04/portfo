@@ -5,6 +5,7 @@ import hashlib
 import smtplib
 import os
 import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 from pylab import savefig
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
