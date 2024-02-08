@@ -132,19 +132,18 @@ def submit_correlation():
                 rowOne = read_csv_row_one_csv('./portfo/data_files/Baseball.csv')
                 columnOne = read_csv_column_one_csv('./portfo/data_files/Baseball.csv')
                 df = pd.read_csv("./portfo/data_files/Baseball.csv")
-                
-                # df_correlation = df[["RS", "RA", "W"]]
-                # altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.std()'
 
                 formulaUsed = f'df[[{category_one}, {category_two}, {category_three}]]'
-                # formulaUsed = "Place holder for formula used One"
                 formulaUsedTwo = f'df_correlation.corr()'
-                # 
-                # results = df[category_one, category_two, category_three]
+                df_correlation = df[[category_one, category_two, category_three]]
                 resultsOne = "Place holder for results One"
+                #resultsOne = df_correlation.corr()
+                
+                
+                formulaUsedThree = "Place holder for Formula Three"
                 resultsTwo = "Place holder for results Two"
                 # return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne)
-                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, resultsOne=resultsOne, resultsTwo=resultsTwo)
+                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=resultsOne, resultsTwo=resultsTwo)
             else:
                 return (str(page_name) + " Not Found")
         except RuntimeError as rte:
