@@ -105,7 +105,7 @@ def submit_formula():
                     results = "No Results"
                 return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="Formula Used:" + formulaUsed, altformula="Alternative Formula:"+altformula, formulaChoosen=basic, results=results)
             else:
-                return (str(pagename) + " Not Found")
+                return (str(page_name) + " Not Found")
         except RuntimeError as rte:
             return {rte}
         except TypeError as te:
@@ -116,6 +116,45 @@ def submit_formula():
             #return 'formula did not work'
     else:
         return 'something went wrong with the formula. Try again!'
+
+
+@app.route('/submit_correlation', methods=['POST', 'GET'])
+def submit_correlation():
+    if request.method == "GET":
+        try:
+            page_name = request.args.get('htmlForm')
+            category_one = request.args.get('category_one')
+            category_two = request.args.get('category_two')
+            category_three = request.args.get('category_three')
+            #return category_three
+            if page_name == "workthree.html":
+                firstFive = first_five_data_row_csv('./portfo/data_files/Baseball.csv')
+                rowOne = read_csv_row_one_csv('./portfo/data_files/Baseball.csv')
+                columnOne = read_csv_column_one_csv('./portfo/data_files/Baseball.csv')
+                df = pd.read_csv("./portfo/data_files/Baseball.csv")
+                
+                # df_correlation = df[["RS", "RA", "W"]]
+                # altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.std()'
+
+                formulaUsed = f'df[[{category_one}, {category_two}, {category_three}]]'
+                # formulaUsed = "Place holder for formula used One"
+                formulaUsedTwo = "Place holder for formula used Two"
+                # 
+                # results = df[category_one, category_two, category_three]
+                results = "Place holder for results"
+                # return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne)
+                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="Formula Used:"+formulaUsed, formulaUsedTwo="Formula Two Used:"+formulaUsedTwo, results=results)
+            else:
+                return (str(page_name) + " Not Found")
+        except RuntimeError as rte:
+            return {rte}
+        except TypeError as te:
+            return {te}
+        except NameError as ne:
+            return {ne}
+        #except:
+    else:
+        return 'something went wrong with the Correlation Formula. Try again!'
 
 
 # this is for routing files & allowing users to download files from the server
