@@ -24,7 +24,7 @@ def html_page(page_name):
     if page_name == "Baseball.html":
         create_csv_to_html(page_name)
         return render_template(page_name)
-    elif page_name == "worktwo.html":
+    elif (page_name == "worktwo.html") or (page_name == "workthree.html"):
         # data = read_csv_file('./portfo/data_files/Baseball.csv')
         firstFive = first_five_data_row_csv('./portfo/data_files/Baseball.csv')
         rowOne = read_csv_row_one_csv('./portfo/data_files/Baseball.csv')
