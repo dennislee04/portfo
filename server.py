@@ -7,8 +7,8 @@ import os
 import pandas as pd
 import seaborn as sns
 import matplotlib
-matplotlib.use('agg')
-import matplotlib.pyplot as plt
+#matplotlib.use('agg')
+#import matplotlib.pyplot as plt
 import io
 import base64
 from pylab import savefig
