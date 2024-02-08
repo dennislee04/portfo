@@ -159,7 +159,7 @@ def submit_correlation():
                 canvas = FigureCanvas(fig)
                 img = io.BytesIO()
                 #fig.savefig(os.path.join('static', 'assets', 'plots', 'heatmap.png'), dpi=75)
-                plt.close(fig)
+                #plt.close(fig)
 
                 return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()], resultsTwo=resultsTwo)
             else:
