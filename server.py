@@ -74,9 +74,14 @@ def submit_formula():
                         altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.mean()'
                         results = df.loc[(df.Team == team, rowoneData)].mean()
                 elif basic == "Medium":
-                    formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].median()'
-                    altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.median()'
-                    results = df.loc[(df.Team == team, rowoneData)].median()
+                    if team == "All":
+                        formulaUsed = f'df.loc[:, \"{rowoneData}\"].median()'
+                        altformula = f'df.{rowoneData}.median()'
+                        results = df.loc[:, rowoneData].median()
+                    else:
+                        formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].median()'
+                        altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.median()'
+                        results = df.loc[(df.Team == team, rowoneData)].median()
                 elif basic == "Mode":
                     formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].mode()'
                     altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.mode()'
