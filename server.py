@@ -157,7 +157,7 @@ def submit_correlation():
 
                 currentOSPath = str(os.path.abspath(__file__))
 
-                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()], resultsTwo=resultsTwo, currentOSPath)
+                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()], resultsTwo=resultsTwo, currentOSPath=currentOSPath)
             else:
                 return (str(page_name) + " Not Found")
         except RuntimeError as rte:
