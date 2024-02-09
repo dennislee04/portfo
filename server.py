@@ -155,7 +155,7 @@ def submit_correlation():
                 # fig.savefig(os.path.join('static', 'assets/plots/heatmap.png'), dpi=75)
                 # fig.savefig('./portfo/static/assets/plots/heatmap.png', dpi=75)
 
-                currentOSPath = str(os.path.abspath(__file__))
+                currentOSPath = str(os.getcwd())
 
                 return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()], resultsTwo=resultsTwo, currentOSPath=currentOSPath)
             else:
