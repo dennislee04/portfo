@@ -152,16 +152,14 @@ def submit_correlation():
                 y = [i for i in range(100)]
 
                 formulaUsedThree = f"sns.heatmap(data = df_correlation.corr(), annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')"
-                resultsTwo = sns.heatmap(resultsOne, annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')
                 sns.heatmap(resultsOne, annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')
                 canvas = FigureCanvas(fig)
                 # fig.savefig(os.path.join('static', 'assets/plots/heatmap.png'), dpi=75)
                 fig.savefig(heatmap_file, dpi=75)
                 plt.close(fig)
 
-                # currentOSPath = str(os.getcwd())
 
-                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()], resultsTwo=resultsTwo)
+                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()])
             else:
                 return (str(page_name) + " Not Found")
         except RuntimeError as rte:
