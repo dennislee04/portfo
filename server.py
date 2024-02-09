@@ -30,10 +30,17 @@ def html_page(page_name):
         create_csv_to_html(page_name)
         return render_template(page_name)
     elif (page_name == "worktwo.html") or (page_name == "workthree.html"):
-        # data = read_csv_file('./portfo/data_files/Baseball.csv')
-        firstFive = first_five_data_row_csv('./portfo/data_files/Baseball.csv')
-        rowOne = read_csv_row_one_csv('./portfo/data_files/Baseball.csv')
-        columnOne = read_csv_column_one_csv('./portfo/data_files/Baseball.csv')
+        baseball = './portfo/data_files/Baseball.csv'
+        # data = read_csv_file(baseball)
+        firstFive = first_five_data_row_csv(baseball)
+        rowOne = read_csv_row_one_csv(baseball)
+        columnOne = read_csv_column_one_csv(baseball)
+
+        if page_name == "workthree.html":
+            heatmap_file = './portfo/static/assets/plots/heatmap.png'
+            if os.path.exists(heatmap_file):
+               os.remove(heatmap_file) 
+
         return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne)
     else:
         return render_template(page_name)
