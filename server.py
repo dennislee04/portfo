@@ -156,8 +156,8 @@ def submit_correlation():
                 canvas = FigureCanvas(fig)
                 # fig.savefig(os.path.join('static', 'assets/plots/heatmap.png'), dpi=75)
 
-                osPathTest = "Place Holder for heatmap.png path test"
-
+                #osPathTest = "Place Holder for heatmap.png path test"
+                osPathTest = str(os.path.join('static', 'assets/plots/heatmap.png'))
 
                 return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()], resultsTwo=resultsTwo, resultsThree=resultsThree, osPathTest=osPathTest)
             else:
