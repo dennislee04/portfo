@@ -150,7 +150,7 @@ def submit_correlation():
                 y = [i for i in range(100)]
 
                 formulaUsedThree = f"sns.heatmap(data = df_correlation.corr(), annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')"
-                resultsThree = sns.heatmap(resultsOne, annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')
+                # resultsThree = sns.heatmap(resultsOne, annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')
                 sns.heatmap(resultsOne, annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')
                 canvas = FigureCanvas(fig)
                 # fig.savefig(os.path.join('static', 'assets/plots/heatmap.png'), dpi=75)
