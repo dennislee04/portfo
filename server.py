@@ -140,8 +140,9 @@ def submit_correlation():
 
                 formulaUsed = f'df[[{category_one}, {category_two}, {category_three}]]'
                 formulaUsedTwo = f'df_correlation.corr()'
-                df_correlation = df[[category_one, category_two, category_three]]
-                resultsOne = df_correlation.corr()
+                # df_correlation = df[[category_one, category_two, category_three]]
+                # resultsOne = df_correlation.corr()
+                resultsOne = "Place holder for results One"
                 resultsTwo = "Place holder for results Two"
 
                 # fig, ax = plt.subplots(figsize=(6,6))
