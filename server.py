@@ -65,10 +65,11 @@ def submit_formula():
             team = request.form.get('columnOneData')
             rowoneData = request.form.get('rowOneData')
             if page_name == "worktwo.html":
-                firstFive = first_five_data_row_csv('./portfo/data_files/Baseball.csv')
-                rowOne = read_csv_row_one_csv('./portfo/data_files/Baseball.csv')
-                columnOne = read_csv_column_one_csv('./portfo/data_files/Baseball.csv')
-                df = pd.read_csv("./portfo/data_files/Baseball.csv")
+                baseball = "./portfo/data_files/Baseball.csv"
+                firstFive = first_five_data_row_csv(baseball)
+                rowOne = read_csv_row_one_csv(baseball)
+                columnOne = read_csv_column_one_csv(baseball)
+                df = pd.read_csv(baseball)
                 if basic == "Mean":
                     if team == "All":
                         formulaUsed = f'df.loc[:, \"{rowoneData}\"].mean()'
@@ -133,10 +134,11 @@ def submit_correlation():
             category_three = request.form.get('category_three')
             #return category_three
             if page_name == "workthree.html":
-                firstFive = first_five_data_row_csv('./portfo/data_files/Baseball.csv')
-                rowOne = read_csv_row_one_csv('./portfo/data_files/Baseball.csv')
-                columnOne = read_csv_column_one_csv('./portfo/data_files/Baseball.csv')
-                df = pd.read_csv("./portfo/data_files/Baseball.csv")
+                baseball = "./portfo/data_files/Baseball.csv"
+                firstFive = first_five_data_row_csv(baseball)
+                rowOne = read_csv_row_one_csv(baseball)
+                columnOne = read_csv_column_one_csv(baseball)
+                df = pd.read_csv(baseball)
 
                 formulaUsed = f'df[[{category_one}, {category_two}, {category_three}]]'
                 formulaUsedTwo = f'df_correlation.corr()'
