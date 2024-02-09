@@ -142,8 +142,6 @@ def submit_correlation():
                 formulaUsedTwo = f'df_correlation.corr()'
                 df_correlation = df[[category_one, category_two, category_three]]
                 resultsOne = df_correlation.corr()
-                # resultsOne = "Place holder for results One"
-                resultsTwo = "Place holder for results Two"
 
                 fig, ax = plt.subplots(figsize=(6,6))
                 ax = sns.set_style(style="darkgrid")
@@ -151,15 +149,13 @@ def submit_correlation():
                 y = [i for i in range(100)]
 
                 formulaUsedThree = f"sns.heatmap(data = df_correlation.corr(), annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')"
-                resultsThree = sns.heatmap(resultsOne, annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')
+                resultsTwo = sns.heatmap(resultsOne, annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')
                 sns.heatmap(resultsOne, annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')
                 canvas = FigureCanvas(fig)
                 # fig.savefig(os.path.join('static', 'assets/plots/heatmap.png'), dpi=75)
+                # fig.savefig('./static/assets/plots/heatmap.png', dpi=75)
 
-                currentOSPathTest = str(os.path.abspath(__file__))
-                osPathTest = str(os.path.join('static', 'assets/plots/heatmap.png'))
-
-                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()], resultsTwo=resultsTwo, resultsThree=resultsThree, currentOSPathTest=currentOSPathTest, osPathTest=osPathTest)
+                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()], resultsTwo=resultsTwo)
             else:
                 return (str(page_name) + " Not Found")
         except RuntimeError as rte:
