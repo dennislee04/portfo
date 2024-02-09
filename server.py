@@ -139,6 +139,7 @@ def submit_correlation():
                 rowOne = read_csv_row_one_csv(baseball)
                 columnOne = read_csv_column_one_csv(baseball)
                 df = pd.read_csv(baseball)
+                heatmap_file = './portfo/static/assets/plots/heatmap.png'
 
                 formulaUsed = f'df[[{category_one}, {category_two}, {category_three}]]'
                 formulaUsedTwo = f'df_correlation.corr()'
@@ -155,7 +156,7 @@ def submit_correlation():
                 sns.heatmap(resultsOne, annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')
                 canvas = FigureCanvas(fig)
                 # fig.savefig(os.path.join('static', 'assets/plots/heatmap.png'), dpi=75)
-                fig.savefig('./portfo/static/assets/plots/heatmap.png', dpi=75)
+                fig.savefig(heatmap_file, dpi=75)
                 plt.close(fig)
 
                 # currentOSPath = str(os.getcwd())
