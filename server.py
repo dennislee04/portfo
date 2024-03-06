@@ -148,10 +148,10 @@ def submit_correlation():
                 df = pd.read_csv(baseball)
                 heatmap_file = './portfo/static/assets/plots/heatmap.png'
 
-                # formulaUsed = f'df[[{category_one}, {category_two}, {category_three}]]'
+                formulaUsed = f'df[[{category_one}, {category_two}, {category_three}]]'
                 # formualUsed = f'Selected catergories from the Dataset: {category_one}, {category_two}, {category_three}'
-                # formulaUsedTwo = f'df_correlation.corr()'
-                formulaUsedTwo = f'Correlation on the selected catergories from the Dataset: {category_one}, {category_two}, {category_three}'
+                formulaUsedTwo = f'df_correlation.corr()'
+                # formulaUsedTwo = f'Correlation on the selected catergories from the Dataset: {category_one}, {category_two}, {category_three}'
 
                 df_correlation = df[[category_one, category_two, category_three]]
                 resultsOne = df_correlation.corr()
@@ -161,8 +161,8 @@ def submit_correlation():
                 x = [i for i in range(100)]
                 y = [i for i in range(100)]
 
-                # formulaUsedThree = f"sns.heatmap(data = df_correlation.corr(), annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')"
-                formulaUsedThree = f'Heat Map Correlation on the selected catergories from the Dataset: {category_one}, {category_two}, {category_three}'
+                formulaUsedThree = f"sns.heatmap(data = df_correlation.corr(), annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')"
+                # formulaUsedThree = f'Heat Map Correlation on the selected catergories from the Dataset: {category_one}, {category_two}, {category_three}'
                 sns.heatmap(resultsOne, annot = True, fmt = '.2g', center = 0, cmap = 'coolwarm', linewidth = 1, linecolor = 'black')
                 canvas = FigureCanvas(fig)
                 # fig.savefig(os.path.join('static', 'assets/plots/heatmap.png'), dpi=75)
