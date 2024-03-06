@@ -285,10 +285,10 @@ def submit_form2(data="Lets see if you have a Strong Password!"):
             #return {data}
             if (count):
                  # return render_template('workone.html', data=f"Your password: \'{pwd[0]}\' was FOUND: {count} times! You should change your password!")
-                return render_template('workone.html', data=f"Your password \'{pwd}\' was FOUND: {count} times. You should change your password!")
+                return render_template('workone.html', data1=f"Your password \'{pwd}\' was FOUND: {count} times. You should change your password!")
             else:
                  # return render_template('workone.html', data=f"Your password: \'{pwd[0]}\' was NOT FOUND. Carry on!")
-                return render_template('workone.html', data=f"Your password \'{pwd}\' was NOT FOUND. Carry on!")
+                return render_template('workone.html', data1=f"Your password \'{pwd}\' was NOT FOUND. Carry on!")
         except:
             return 'did not check against the database'
     else:
