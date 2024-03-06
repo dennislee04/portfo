@@ -149,7 +149,7 @@ def submit_correlation():
                 heatmap_file = './portfo/static/assets/plots/heatmap.png'
 
                 # formulaUsed = f'df[[{category_one}, {category_two}, {category_three}]]'
-                formualUsed = f'Selected catergories from the Dataset: {category_one}, {category_two}, {category_three}'
+                formualUsed = f'Selected catergories from the Dataset: category_one, category_two, category_three'
                 formulaUsedTwo = f'df_correlation.corr()'
                 # formulaUsedTwo = f'Correlation on the selected catergories from the Dataset: {category_one}, {category_two}, {category_three}'
 
