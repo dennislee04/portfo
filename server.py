@@ -79,44 +79,45 @@ def submit_formula():
                 df = pd.read_csv(baseball)
                 if basic == "Mean":
                     if team == "All":
-                        formulaUsed = f'df.loc[:, \"{rowoneData}\"].mean()'
-                        altformula = f'df.{rowoneData}.mean()'
+                        # formulaUsed = f'df.loc[:, \"{rowoneData}\"].mean()'
+                        # altformula = f'df.{rowoneData}.mean()'
                         results = df.loc[:, rowoneData].mean()
                     else:
-                        formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].mean()'
-                        altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.mean()'
+                        # formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].mean()'
+                        # altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.mean()'
                         results = df.loc[(df.Team == team, rowoneData)].mean()
                 elif basic == "Medium":
                     if team == "All":
-                        formulaUsed = f'df.loc[:, \"{rowoneData}\"].median()'
-                        altformula = f'df.{rowoneData}.median()'
+                        # formulaUsed = f'df.loc[:, \"{rowoneData}\"].median()'
+                        # altformula = f'df.{rowoneData}.median()'
                         results = df.loc[:, rowoneData].median()
                     else:
-                        formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].median()'
-                        altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.median()'
+                        # formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].median()'
+                        # altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.median()'
                         results = df.loc[(df.Team == team, rowoneData)].median()
                 elif basic == "Mode":
                     if team == "All":
-                        formulaUsed = f'df.loc[:, \"{rowoneData}\"].mode()'
-                        altformula = f'df.{rowoneData}.mode()'
+                        # formulaUsed = f'df.loc[:, \"{rowoneData}\"].mode()'
+                        # altformula = f'df.{rowoneData}.mode()'
                         results = df.loc[:, rowoneData].mode()
                     else:
-                        formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].mode()'
-                        altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.mode()'
+                        # formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].mode()'
+                        # altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.mode()'
                         results = df.loc[(df.Team == team, rowoneData)].mode()
                 elif basic == "StanDev":
                     if team == "All":
-                        formulaUsed = f'df.loc[:, \"{rowoneData}\"].std()'
-                        altformula = f'df.{rowoneData}.std()'
+                        # formulaUsed = f'df.loc[:, \"{rowoneData}\"].std()'
+                        # altformula = f'df.{rowoneData}.std()'
                         results = df.loc[:, rowoneData].std()
                     else:
-                        formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].std()'
-                        altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.std()'
+                        # formulaUsed = f'df.loc[df.Team == \"{team}\", \"{rowoneData}\"].std()'
+                        # altformula = f'df.loc[df.Team == \"{team}\"].{rowoneData}.std()'
                         results = df.loc[(df.Team == team, rowoneData)].std()
                 else:
                     formulaUsed = "No formula was used"
                     results = "No Results"
-                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="Formula Used:" + formulaUsed, altformula="Alternative Formula:"+altformula, formulaChoosen=basic+":", results=results)
+                # return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="Formula Used:" + formulaUsed, altformula="Alternative Formula:"+altformula, formulaChoosen=basic+":", results=results)
+                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaChoosen=basic+":", results=results)
             else:
                 return (str(page_name) + " Not Found")
         except RuntimeError as rte:
