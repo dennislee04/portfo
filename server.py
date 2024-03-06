@@ -148,7 +148,7 @@ def submit_correlation():
                 df = pd.read_csv(baseball)
                 heatmap_file = './portfo/static/assets/plots/heatmap.png'
 
-                formulaUsed = f'df[[{category_one}, {category_two}, {category_three}]]'
+                # formulaUsed = f'df[[{category_one}, {category_two}, {category_three}]]'
                 # formualUsed = f'Selected catergories from the Dataset: {category_one}, {category_two}, {category_three}'
                 # formulaUsedTwo = f'df_correlation.corr()'
                 # Correlation on the selected catergories from the Dataset: 
@@ -172,7 +172,7 @@ def submit_correlation():
 
 
                 # return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()])
-                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()])
+                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Correlation on the selected catergories from the Dataset:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()])
             else:
                 return (str(page_name) + " Not Found")
         except RuntimeError as rte:
