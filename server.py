@@ -150,8 +150,9 @@ def submit_correlation():
 
                 formulaUsed = f'df[[{category_one}, {category_two}, {category_three}]]'
                 # formualUsed = f'Selected catergories from the Dataset: {category_one}, {category_two}, {category_three}'
-                formulaUsedTwo = f'df_correlation.corr()'
-                # formulaUsedTwo = f'Correlation on the selected catergories from the Dataset: {category_one}, {category_two}, {category_three}'
+                # formulaUsedTwo = f'df_correlation.corr()'
+                # Correlation on the selected catergories from the Dataset: 
+                formulaUsedTwo = f'{category_one}, {category_two}, {category_three}'
 
                 df_correlation = df[[category_one, category_two, category_three]]
                 resultsOne = df_correlation.corr()
@@ -170,6 +171,7 @@ def submit_correlation():
                 plt.close(fig)
 
 
+                # return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()])
                 return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="First Formula Used:"+formulaUsed, formulaUsedTwo="Second Formula Used:"+formulaUsedTwo, formulaUsedThree="Third Formula Used:"+formulaUsedThree, resultsOne=[resultsOne.to_html()])
             else:
                 return (str(page_name) + " Not Found")
