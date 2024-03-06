@@ -116,7 +116,7 @@ def submit_formula():
                 else:
                     formulaUsed = "No formula was used"
                     results = "No Results"
-                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="Formula Used:" + formulaUsed, altformula="Alternative Formula:"+altformula, formulaChoosen=basic, results=results)
+                return render_template(page_name, tables=[firstFive.to_html()], titles=[''], rowOne=rowOne, columnOne=columnOne, formulaUsed="Formula Used:" + formulaUsed, altformula="Alternative Formula:"+altformula, formulaChoosen=":"+basic, results=results)
             else:
                 return (str(page_name) + " Not Found")
         except RuntimeError as rte:
@@ -285,10 +285,10 @@ def submit_form2(data="Lets see if you have a Strong Password!"):
             #return {data}
             if (count):
                  # return render_template('workone.html', data=f"Your password: \'{pwd[0]}\' was FOUND: {count} times! You should change your password!")
-                return render_template('workone.html', data1=f"1. On https://haveibeenpwned.com/Passwords: Your password \'{pwd}\' was FOUND: {count} TIMES!")
+                return render_template('workone.html', data1=f"1. On https://haveibeenpwned.com/Passwords, Your password \'{pwd}\' was FOUND: {count} TIMES!")
             else:
                  # return render_template('workone.html', data=f"Your password: \'{pwd[0]}\' was NOT FOUND. Carry on!")
-                return render_template('workone.html', data1=f"1. On https://haveibeenpwned.com/Passwords: Your password \'{pwd}\' was NOT FOUND!")
+                return render_template('workone.html', data1=f"1. On https://haveibeenpwned.com/Passwords, Your password \'{pwd}\' was NOT FOUND!")
         except:
             return 'did not check against the database'
     else:
