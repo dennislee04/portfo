@@ -70,11 +70,13 @@
           </div>
           <p>This is a simple password checker project (SHA1), using Pythons 'hashlib' library, that is setup to use <a href="https://haveibeenpwned.com/Passwords" target="_blank">"https://haveibeenpwned.com/Passwords"</a> API. Put in your password, click the check button & it will let you know how many times your password was found in their database.</p>
 
-          <blockquote>
+          <!--<blockquote>
             <p>"Do you have a good Password?"</p>
             <p style="color:red">{{data1}}</p>
-          </blockquote>
-
+          </blockquote>-->
+          <div>
+            <p>"Do you have a good Password?"</p>
+          </div>
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
                <form action="password_check" method="post" class="reveal-content">
@@ -88,6 +90,9 @@
                   </div>
                 </form>
             </div>
+          </div>
+          <div>
+            <p style="color:red">{{data1}}</p>
           </div>
         </div>
       </div>
