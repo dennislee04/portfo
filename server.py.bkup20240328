@@ -34,8 +34,6 @@ def html_page(page_name):
         # data = read_csv_file(baseball)
         firstFive = first_five_data_row_csv(baseball)
         rowOne = read_csv_row_one_csv(baseball)
-        rowOne.pop("Team")
-        rowOne.pop("League")
         columnOne = read_csv_column_one_csv(baseball)
 
         if page_name == "workthree.html":
