@@ -13,7 +13,9 @@ from matplotlib.figure import Figure
 from datetime import datetime
 from email.message import EmailMessage
 from openpyxl import load_workbook
+
 # workon my-virtualenv (to install libraries to & work on my virtual environment on Python Anywhere)
+# /home/dennislee04/portfo
 
 app = Flask(__name__)
 
