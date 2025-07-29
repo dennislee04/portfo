@@ -15,12 +15,9 @@
   <link rel="apple-touch-icon" sizes="180x180" href="static/assets/apple-icon-180x180.png">
   <link href="static/assets/favicon.ico" rel="icon">
 
+  <title>Work Four</title>
 
-  <title>Work</title>
-
-  <link href="static/main.3f6952e4.css" rel="stylesheet">
-  <link href="static/myCSS.css" rel="stylesheet">
-</head>>
+<link href="static/main.3f6952e4.css" rel="stylesheet"></head>
 
 <body class="">
 <div id="site-border-left"></div>
@@ -44,7 +41,7 @@
           <li><a href="./works.html" title="">02 : Works</a></li>
           <li><a href="./about.html" title="">03 : About me</a></li>
           <li><a href="./contact.html" title="">04 : Contact</a></li>
-          <!--<li><li><a href="./components.html" title="">05 : Components</a></li></li>-->
+          <!--<li><a href="./components.html" title="">05 : Components</a></li>-->
         </ul>
 
 
@@ -53,8 +50,8 @@
             <li><a href="./worktwo.html" title="">002</a></li>
             <li><a href="./workthree.html" title="">003</a></li>
             <li><a href="./workfour.html" title="">004</a></li>
-            <li><a href="./index.html" title="">005</a></li>
-            <li><a href="./index.html" title="">006</a></li>
+            <li><a href="./workfive.html" title="">005</a></li>
+            <li><a href="./worksix.html" title="">006</a></li>
           </ul>
 
 
@@ -69,83 +66,15 @@
         <img src="static/assets/images/work001-01.jpg" class="img-responsive" alt="">
         <div class="card-container">
           <div class="text-center">
-            <h1 class="h2">002 : Basic Statistics</h1>
+            <h1 class="h2">002 In Progress</h1>
           </div>
-          <p>This is a simple project using Python's library Pandas to do Basic Statistics against a Baseball.csv(<a href="Baseball.html" target="_blank">View CSV Online</a> / <a href="{{url_for('downloads', id='Baseball.csv')}}">Download CSV</a>) database file.</p>
-          <div style="line-height:15px">
-            <p>These are the first 5 records of this Baseball.CSV file</p>
-            <table>
-            <!--Displaying the converted table-->
-            {% for record in tables %} 
-            <h2>{{titles[loop.index]}}</h2>  
-            {{ record|safe }} 
-            {% endfor %}
-            </table>
-            <p>***Abbreviated Titles***</p>
-            <list class="abbreviatedDataItemsList">
-            <ul>*Runs Scored (RS)*</ul>
-            <ul>*Runs Allowed (RA)*</ul>
-            <ul>*Wins (W)*</ul>
-            <ul>*On-Base Percentage (OBP)*</ul>
-            <ul>*Slugging Percentage (SLG)*</ul>
-            <ul>*Battling Average (BA)*</ul>
-            <ul>*Playoffs (binary)*</ul>
-            <ul>*Games Played (G)*</ul>
-            <ul>*Opponent On-Base Percentage (OOBP)*</ul>
-            <ul>*Opponent Slugging Percentage (OSLG)*</ul>
-            </list>
-          </div>
-          <label>Select a Basic Statistics Function to preform on Baseball.CSV data set</label>
-          <form action="submit_formula" method="POST" name="StatsBasic">
-            <table class="formulaOptions">
-                <tr><input type="hidden" name="htmlForm" value="worktwo.html"></tr>
-                <tr>
-                <td>Statistics Formulas</td>
-                <td>Teams</td>
-                <td>Column Categories</td>
-              </tr>
-              <tr>
-                <td>
-                  <select name="basicStat" id="basicStat">
-                    <option value="Mean">Mean</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Mode">Mode</option>
-                    <!--<option value="correlation">Correlation</option>-->
-                    <option value="StanDev">Standard Deviation</option>
-                  </select>
-                </td>
-                <td>
-                  <select name="columnOneData" id="columnOneData" >
-                  <option value="All">All</option>
-                  {% for record in columnOne %}
-                  <option value= "{{record}}" SELECTED>{{record}}</option>"
-                  {% endfor %}
-                  </select>
-                </td>
-                <td>
-                  <select name="rowOneData" id="rowOneData" >
-                  <!--<option value="All">All</option>-->
-                  {% for record in rowOne %}
-                  <option value= "{{record}}" SELECTED>{{record}}</option>"
-                  {% endfor %}
-                  </select>
-                </td>
-                <td>
-                  <button type="submit" value="basicStatsResults">Get Results</button>
-                </td>
-              </tr>
-            </table>
-          </form>
-          <!--<p style="color:red;margin:0px;">{{altformula}}</p>
-          <p style="margin:0px;">{{formulaUsed}}</p>-->
-          <p style="color:red;margin:0px;">{{formulaChoosen}} {{results}}</p>
+          <p>Project 2 is in progress...</p>
         </div>
       </div>
 
-      
-      
+      <!--
       <div class="col-md-8 col-md-offset-2 section-container-spacer">
-        <!--<div class="row">
+        <div class="row">
           <div class="col-xs-12 col-md-6">
             <img src="static/assets/images/work001-02.jpg" class="img-responsive" alt="">
             <p>Menphis skyline</p>
@@ -154,12 +83,12 @@
             <img src="static/assets/images/work001-03.jpg" class="img-responsive" alt="">
             <p>Menphis skyline</p>
           </div>
-        </div>-->
+        </div>
       </div>
-
-      <div class="col-xs-12">
+      -->
+      <!--<div class="col-xs-12">
         <img src="static/assets/images/work001-04.jpg" class="img-responsive" alt="">
-      </div>
+      </div>-->
 
     </div>
   </div>
@@ -179,7 +108,8 @@
 <script>
   document.addEventListener("DOMContentLoaded", function (event) {
      navActivePage();
-  });
+    });
+</
 </script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
