@@ -1,10 +1,14 @@
 from flask import Flask, render_template, url_for, request, redirect, send_file
+import csv
 import requests
 import hashlib
 import smtplib
 import os
+from pylab import savefig
+from matplotlib.figure import Figure
 from datetime import datetime
 from email.message import EmailMessage
+from openpyxl import load_workbook
 
 # workon my-virtualenv (to install libraries to & work on my virtual environment on Python Anywhere)
 # /home/dennislee04/portfo
@@ -21,6 +25,22 @@ def my_home():
 def html_page(page_name):
     return render_template(page_name)
 
+
+# This is for submitting the contact form - Start
+@app.route('/submit_form', methods=['POST', 'GET'])
+def submit_form():
+    if request.method == "POST":
+        try:
+            data = request.form.to_dict()
+            # print(data)
+            write_to_file(data)
+            write_to_csv(data)
+            send_email(data)
+            return redirect('thankyou.html')
+        except:
+            return 'did not save to database'
+    else:
+        return 'something went wrong. Try again!'
 
 # This will send an email to myself, the inputed user's email address, with the sender as me (leedennis04@gmail.com)
 # Using a Gmail API: https://console.cloud.google.com/apis/api/gmail.googleapis.com/
@@ -44,7 +64,26 @@ def send_email(data):
         smtp.login('leedennis04@gmail.com', str(password))
         smtp.send_message(email)
 
+# This will write the user's contact information to the database.txt file
+def write_to_file(data):
+    with open('./portfo/data_files/database.txt', mode='a') as database:
+        email = data["email"]
+        subject = data["subject"]
+        message = data["message"]
+        file = database.write(f'\n{email}, {subject}, {message}')
 
+# This will write the user's contact information to the database.csv file
+def write_to_csv(data):
+    with open('./portfo/data_files/database.csv', mode='a', newline='') as database2:
+        email = data["email"]
+        subject = data["subject"]
+        message = data["message"]
+        csv_writer = csv.writer(database2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        csv_writer.writerow([email, subject, message])
+# This is for submitting the contact form - End
+
+
+# This is for password API Check workone.html - Start
 # This is the form for checking the password against the "https://haveibeenpwned.com/Passwords" API
 @app.route('/password_check', methods=['POST', 'GET'])
 def submit_form2(data="Lets see if you have a Strong Password!"):
@@ -65,7 +104,6 @@ def submit_form2(data="Lets see if you have a Strong Password!"):
     else:
         return 'something went wrong with button. Try again!'
 
-
 # This will test to make sure that it can connect to the "https://haveibeenpwned.com/Passwords" API
 def request_api_data(query_char):
     url = 'https://api.pwnedpasswords.com/range/' + query_char
@@ -74,14 +112,12 @@ def request_api_data(query_char):
         raise RuntimeError(f'Error fetching {res.status_code}, please check API & try again!')
     return res
 
-
 # This will hash the user inputed password & will split this into 2 strings (first 5 char & all the char after the 5th)
 def pwned_api_check(password):
     sha1password = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
     first5_char, tail = sha1password[:5], sha1password[5:]
     response = request_api_data(first5_char)
     return get_password_leaks(response, tail)
-
 
 # This will used the hased password & check against the "https://haveibeenpwned.com/Passwords" API to see how many times it shows up there
 def get_password_leaks(hashes, hash_to_check):
@@ -90,6 +126,7 @@ def get_password_leaks(hashes, hash_to_check):
         if h == hash_to_check:
             return count
     return 0
+# This is for password API Check workone.html - End
 
 
 """
