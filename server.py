@@ -92,13 +92,14 @@ def submit_form2(data="Lets see if you have a Strong Password!"):
             data = request.form.to_dict()
             pwd= str(data['Password To Check'])
             count = pwned_api_check(pwd)
+            bold_pwd = text.replace(pwd, f"\033[1m{pwd}\033[0m")
             #return {data}
             if (count):
                  # return render_template('workone.html', data=f"Your password: \'{pwd[0]}\' was FOUND: {count} times! You should change your password!")
-                return render_template('workone.html', data1=f"**** On https://haveibeenpwned.com/Passwords, Your password \'{pwd}\' was FOUND: {count} TIMES! ****")
+                return render_template('workone.html', data1=f"**** On https://haveibeenpwned.com/Passwords, Your password \'{bold_pwd}\' was FOUND: {count} TIMES! ****")
             else:
                  # return render_template('workone.html', data=f"Your password: \'{pwd[0]}\' was NOT FOUND. Carry on!")
-                return render_template('workone.html', data1=f"**** On https://haveibeenpwned.com/Passwords, Your password \'{pwd}\' was NOT FOUND! ****")
+                return render_template('workone.html', data1=f"**** On https://haveibeenpwned.com/Passwords, Your password \'{bold_pwd}\' was NOT FOUND! ****")
         except:
             return 'did not check against the database'
     else:
