@@ -15,18 +15,19 @@ from openpyxl import load_workbook
 
 app = Flask(__name__)
 
-
+# Default index.html page routing
 @app.route('/')
 def my_home():
     return render_template('index.html')
 
-
+#Default page routing, based on page name
+# (3/7/2024) @app.route('/<string:page_name>', methods=['GET', 'POST'])
 @app.route('/<string:page_name>')
 def html_page(page_name):
     return render_template(page_name)
 
 
-# This is for submitting the contact form - Start
+# This is for submitting the contact form - contact.html
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
     if request.method == "POST":
